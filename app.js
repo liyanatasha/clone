@@ -991,44 +991,65 @@ app.post('/admin/update-blog/:id', isAuthenticated, upload.single('blogImage'), 
                     const tagArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag);
                     
                     if (tagArray.length > 0) {
-                        const tagStmt = db.prepare(`
-                            INSERT OR IGNORE INTO blog_tags (tag_name)
-                            VALUES (?)
-                        `);
-                        
-                        const processNextTag = (index) => {
-                            if (index >= tagArray.length) {
-                                db.run('COMMIT');
-                                return res.redirect('/admin');
-                            }
-                            
-                            const tag = tagArray[index];
-                            tagStmt.run(tag, function(err) {
-                                if (err) {
-                                    tagStmt.finalize();
-                                    db.run('ROLLBACK');
-                                    console.error(err);
-                                    return res.status(500).send('Error adding tag');
+                        // Create a promise-based wrapper for better async handling
+                        const processAllTags = async () => {
+                            try {
+                                // Begin transaction
+                                await new Promise((resolve, reject) => {
+                                    db.run('BEGIN TRANSACTION', (err) => {
+                                        if (err) reject(err);
+                                        else resolve();
+                                    });
+                                });
+                                
+                                // Process each tag sequentially
+                                for (const tag of tagArray) {
+                                    // Insert tag if not exists
+                                    await new Promise((resolve, reject) => {
+                                        db.run(`
+                                            INSERT OR IGNORE INTO blog_tags (tag_name)
+                                            VALUES (?)
+                                        `, [tag], (err) => {
+                                            if (err) reject(err);
+                                            else resolve();
+                                        });
+                                    });
+                                    
+                                    // Link tag to post
+                                    await new Promise((resolve, reject) => {
+                                        db.run(`
+                                            INSERT INTO post_tags (post_id, tag_id)
+                                            SELECT ?, id FROM blog_tags WHERE tag_name = ?
+                                        `, [postId, tag], (err) => {
+                                            if (err) reject(err);
+                                            else resolve();
+                                        });
+                                    });
                                 }
                                 
-                                db.run(`
-                                    INSERT INTO post_tags (post_id, tag_id)
-                                    SELECT ?, id FROM blog_tags WHERE tag_name = ?
-                                `, [postId, tag], function(err) {
-                                    if (err) {
-                                        tagStmt.finalize();
-                                        db.run('ROLLBACK');
-                                        console.error(err);
-                                        return res.status(500).send('Error linking tag');
-                                    }
-                                    
-                                    processNextTag(index + 1);
+                                // Commit transaction
+                                await new Promise((resolve, reject) => {
+                                    db.run('COMMIT', (err) => {
+                                        if (err) reject(err);
+                                        else resolve();
+                                    });
                                 });
-                            });
+                                
+                                // Redirect after successful completion
+                                return res.redirect('/admin');
+                            } catch (err) {
+                                // Rollback on error
+                                db.run('ROLLBACK');
+                                console.error(err);
+                                return res.status(500).send('Error processing tags');
+                            }
                         };
                         
-                        processNextTag(0);
-                        tagStmt.finalize();
+                        // Execute the async function
+                        processAllTags().catch(err => {
+                            console.error('Error in tag processing:', err);
+                            res.status(500).send('An unexpected error occurred');
+                        });
                     } else {
                         db.run('COMMIT');
                         res.redirect('/admin');
