@@ -412,6 +412,17 @@
   color: #999999 !important;
   font-style: italic;
 }
+
+
+/* Image resizing styles */
+.ql-editor img {
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.ql-editor img.selected {
+    border: 2px solid #643c94;
+}
     </style>
 </head>
 <body>
@@ -730,6 +741,8 @@
                     },
                     theme: 'snow'
                 });
+
+                setupImageResizingInQuill(quill);
                 
                 // Handle form submission - update the hidden field with Quill's content
                 document.getElementById('newBlogForm').addEventListener('submit', function() {
@@ -798,6 +811,189 @@ document.querySelectorAll('.delete-form').forEach(form => {
         }
     });
 });
+
+function setupImageResizingInQuill(quill) {
+  // Container to track the currently selected image
+  let selectedImage = null;
+  
+  // Create resize handles and overlay for the selected image
+  const overlay = document.createElement('div');
+  overlay.classList.add('image-resize-overlay');
+  overlay.style.display = 'none';
+  overlay.style.position = 'absolute';
+  overlay.style.border = '2px dashed #643c94';
+  overlay.style.pointerEvents = 'none';
+  
+  const resizeHandle = document.createElement('div');
+  resizeHandle.classList.add('image-resize-handle');
+  resizeHandle.style.width = '10px';
+  resizeHandle.style.height = '10px';
+  resizeHandle.style.position = 'absolute';
+  resizeHandle.style.bottom = '-5px';
+  resizeHandle.style.right = '-5px';
+  resizeHandle.style.background = '#643c94';
+  resizeHandle.style.cursor = 'nwse-resize';
+  resizeHandle.style.pointerEvents = 'all';
+  
+  // Create size control with width input
+  const sizeControl = document.createElement('div');
+  sizeControl.classList.add('image-size-control');
+  sizeControl.style.position = 'absolute';
+  sizeControl.style.top = '-30px';
+  sizeControl.style.left = '0';
+  sizeControl.style.background = 'rgba(100, 60, 148, 0.8)';
+  sizeControl.style.color = 'white';
+  sizeControl.style.padding = '4px 8px';
+  sizeControl.style.borderRadius = '3px';
+  sizeControl.style.pointerEvents = 'all';
+  sizeControl.style.display = 'flex';
+  sizeControl.style.alignItems = 'center';
+  sizeControl.style.gap = '8px';
+  
+  // Add width input
+  const widthInput = document.createElement('input');
+  widthInput.type = 'number';
+  widthInput.min = '50';
+  widthInput.max = '1000';
+  widthInput.placeholder = 'Width';
+  widthInput.style.width = '70px';
+  widthInput.style.background = 'white';
+  widthInput.style.color = '#333';
+  widthInput.style.border = 'none';
+  widthInput.style.borderRadius = '3px';
+  widthInput.style.padding = '3px';
+  
+  // Add small label
+  const widthLabel = document.createElement('span');
+  widthLabel.textContent = 'Width (px):';
+  widthLabel.style.fontSize = '12px';
+  
+  // Add elements to the DOM
+  sizeControl.appendChild(widthLabel);
+  sizeControl.appendChild(widthInput);
+  
+  overlay.appendChild(resizeHandle);
+  overlay.appendChild(sizeControl);
+  
+  // Add the overlay to the Quill container
+  const quillContainer = quill.container.parentNode;
+  quillContainer.style.position = 'relative';
+  quillContainer.appendChild(overlay);
+  
+  // Update overlay position based on selected image
+  function updateOverlayPosition() {
+    if (!selectedImage) {
+      overlay.style.display = 'none';
+      return;
+    }
+    
+    const rect = selectedImage.getBoundingClientRect();
+    const containerRect = quillContainer.getBoundingClientRect();
+    
+    overlay.style.display = 'block';
+    overlay.style.left = (rect.left - containerRect.left) + 'px';
+    overlay.style.top = (rect.top - containerRect.top) + 'px';
+    overlay.style.width = rect.width + 'px';
+    overlay.style.height = rect.height + 'px';
+    
+    widthInput.value = selectedImage.width;
+  }
+  
+  // Handle image selection
+  quill.root.addEventListener('click', function(e) {
+    if (e.target && e.target.tagName === 'IMG') {
+      selectedImage = e.target;
+      updateOverlayPosition();
+      
+      // Prevent the click from submitting forms
+      e.preventDefault();
+      e.stopPropagation();
+    } else {
+      selectedImage = null;
+      overlay.style.display = 'none';
+    }
+  });
+  
+  // Handle width input changes
+  widthInput.addEventListener('change', function(e) {
+    if (selectedImage && this.value >= 50 && this.value <= 1000) {
+      selectedImage.width = this.value;
+      updateOverlayPosition();
+    }
+    
+    // Prevent the change from submitting forms
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  
+  // Prevent form submission when interacting with controls
+  widthInput.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  
+  // Handle resize with drag
+  let isResizing = false;
+  let startX, startY, startWidth, startHeight;
+  
+  resizeHandle.addEventListener('mousedown', function(e) {
+    if (!selectedImage) return;
+    
+    isResizing = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startWidth = selectedImage.width;
+    startHeight = selectedImage.height;
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    // Prevent the mousedown from submitting forms
+    e.preventDefault();
+    e.stopPropagation();
+  });
+  
+  function handleMouseMove(e) {
+    if (!isResizing) return;
+    
+    const deltaX = e.clientX - startX;
+    const newWidth = Math.max(50, Math.min(1000, startWidth + deltaX));
+    
+    selectedImage.width = newWidth;
+    updateOverlayPosition();
+    
+    // Prevent the mousemove from submitting forms
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  
+  function handleMouseUp(e) {
+    isResizing = false;
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+    
+    // Prevent the mouseup from submitting forms
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }
+  
+  // Handle window resize to reposition overlay
+  window.addEventListener('resize', function() {
+    if (selectedImage) {
+      updateOverlayPosition();
+    }
+  });
+  
+  // Clean up selection when clicking outside the editor
+  document.addEventListener('click', function(e) {
+    if (!quillContainer.contains(e.target)) {
+      selectedImage = null;
+      overlay.style.display = 'none';
+    }
+  });
+}
     </script>
 </body>
 </html>
