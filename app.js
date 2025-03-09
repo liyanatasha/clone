@@ -910,39 +910,47 @@ app.get('/admin/edit-blog/:id', isAuthenticated, (req, res) => {
 });
 
 // Route to update a blog post
-app.post('/admin/update-blog/:id', isAuthenticated, upload.single('blogImage'), (req, res) => {
+app.post('/admin/update-blog/:id', isAuthenticated, upload.single('blogImage'), async (req, res) => {
     const postId = req.params.id;
     const { title, content, excerpt, tags, removeFeaturedImage } = req.body;
     const newImage = req.file ? req.file.filename : null;
     
-    // Generate slug from title if it has changed
+    // Generate slug from title
     const slug = title.toLowerCase()
         .replace(/[^\w\s-]/g, '')
         .replace(/\s+/g, '-');
     
-    db.serialize(() => {
-        db.run('BEGIN TRANSACTION');
+    try {
+        // Begin transaction
+        await new Promise((resolve, reject) => {
+            db.run('BEGIN TRANSACTION', (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
         
         // First, check if we need to remove the current featured image
         if (removeFeaturedImage === 'true') {
-            db.get('SELECT image FROM blog_posts WHERE id = ?', [postId], (err, post) => {
-                if (err) {
-                    db.run('ROLLBACK');
-                    console.error(err);
-                    return res.status(500).send('Error checking current image');
-                }
-                
-                if (post && post.image) {
-                    // Delete the old image file
-                    const filePath = path.join(__dirname, 'public', 'uploads', post.image);
-                    fs.unlink(filePath, (err) => {
-                        if (err) console.error('Error deleting file:', err);
-                    });
-                }
+            const row = await new Promise((resolve, reject) => {
+                db.get('SELECT image FROM blog_posts WHERE id = ?', [postId], (err, row) => {
+                    if (err) reject(err);
+                    else resolve(row);
+                });
             });
+            
+            if (row && row.image) {
+                // Delete the old image file
+                const filePath = path.join(__dirname, 'public', 'uploads', row.image);
+                try {
+                    fs.unlinkSync(filePath);
+                } catch (err) {
+                    console.error('Error deleting file:', err);
+                    // Continue even if file deletion fails
+                }
+            }
         }
         
-        // Update blog post details
+        // Determine update query based on image handling
         let updateQuery, updateParams;
         
         if (newImage) {
@@ -971,96 +979,71 @@ app.post('/admin/update-blog/:id', isAuthenticated, upload.single('blogImage'), 
             updateParams = [title, content, excerpt, slug, postId];
         }
         
-        db.run(updateQuery, updateParams, function(err) {
-            if (err) {
-                db.run('ROLLBACK');
-                console.error(err);
-                return res.status(500).send('Error updating blog post');
-            }
-            
-            // Delete existing tag associations
-            db.run('DELETE FROM post_tags WHERE post_id = ?', [postId], function(err) {
-                if (err) {
-                    db.run('ROLLBACK');
-                    console.error(err);
-                    return res.status(500).send('Error updating tags');
-                }
-                
-                // Process new tags if provided
-                if (tags) {
-                    const tagArray = tags.split(',').map(tag => tag.trim()).filter(tag => tag);
-                    
-                    if (tagArray.length > 0) {
-                        // Create a promise-based wrapper for better async handling
-                        const processAllTags = async () => {
-                            try {
-                                // Begin transaction
-                                await new Promise((resolve, reject) => {
-                                    db.run('BEGIN TRANSACTION', (err) => {
-                                        if (err) reject(err);
-                                        else resolve();
-                                    });
-                                });
-                                
-                                // Process each tag sequentially
-                                for (const tag of tagArray) {
-                                    // Insert tag if not exists
-                                    await new Promise((resolve, reject) => {
-                                        db.run(`
-                                            INSERT OR IGNORE INTO blog_tags (tag_name)
-                                            VALUES (?)
-                                        `, [tag], (err) => {
-                                            if (err) reject(err);
-                                            else resolve();
-                                        });
-                                    });
-                                    
-                                    // Link tag to post
-                                    await new Promise((resolve, reject) => {
-                                        db.run(`
-                                            INSERT INTO post_tags (post_id, tag_id)
-                                            SELECT ?, id FROM blog_tags WHERE tag_name = ?
-                                        `, [postId, tag], (err) => {
-                                            if (err) reject(err);
-                                            else resolve();
-                                        });
-                                    });
-                                }
-                                
-                                // Commit transaction
-                                await new Promise((resolve, reject) => {
-                                    db.run('COMMIT', (err) => {
-                                        if (err) reject(err);
-                                        else resolve();
-                                    });
-                                });
-                                
-                                // Redirect after successful completion
-                                return res.redirect('/admin');
-                            } catch (err) {
-                                // Rollback on error
-                                db.run('ROLLBACK');
-                                console.error(err);
-                                return res.status(500).send('Error processing tags');
-                            }
-                        };
-                        
-                        // Execute the async function
-                        processAllTags().catch(err => {
-                            console.error('Error in tag processing:', err);
-                            res.status(500).send('An unexpected error occurred');
-                        });
-                    } else {
-                        db.run('COMMIT');
-                        res.redirect('/admin');
-                    }
-                } else {
-                    db.run('COMMIT');
-                    res.redirect('/admin');
-                }
+        // Update blog post details
+        await new Promise((resolve, reject) => {
+            db.run(updateQuery, updateParams, function(err) {
+                if (err) reject(err);
+                else resolve();
             });
         });
-    });
+        
+        // Delete existing tag associations
+        await new Promise((resolve, reject) => {
+            db.run('DELETE FROM post_tags WHERE post_id = ?', [postId], function(err) {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+        
+        // Process new tags if provided
+        if (tags) {
+            const tagArray = tags.split(',')
+                .map(tag => tag.trim())
+                .filter(tag => tag.length > 0);
+            
+            // Add tags one by one
+            for (const tag of tagArray) {
+                // Insert tag if it doesn't exist
+                await new Promise((resolve, reject) => {
+                    db.run(`
+                        INSERT OR IGNORE INTO blog_tags (tag_name)
+                        VALUES (?)
+                    `, [tag], function(err) {
+                        if (err) reject(err);
+                        else resolve();
+                    });
+                });
+                
+                // Link tag to post
+                await new Promise((resolve, reject) => {
+                    db.run(`
+                        INSERT INTO post_tags (post_id, tag_id)
+                        SELECT ?, id FROM blog_tags WHERE tag_name = ?
+                    `, [postId, tag], function(err) {
+                        if (err) reject(err);
+                        else resolve();
+                    });
+                });
+            }
+        }
+        
+        // Commit transaction if all operations succeeded
+        await new Promise((resolve, reject) => {
+            db.run('COMMIT', (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+        
+        return res.redirect('/admin');
+        
+    } catch (error) {
+        // Rollback transaction on any error
+        db.run('ROLLBACK', () => {
+            console.error('Error updating blog post:', error);
+            return res.status(500).send('Error updating blog post: ' + error.message);
+        });
+    }
 });
 
 // Route to handle inline image uploads for Quill editor
