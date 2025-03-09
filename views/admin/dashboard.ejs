@@ -773,6 +773,20 @@ function makeEditorResizable(editorContainerId) {
     makeEditorResizable('new-editor-container');
   }
   
+  // Check URL parameters for active tab
+  const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    
+    // Set active tab based on URL parameter if it exists
+    if (tabParam === 'blog') {
+        // Remove active class from all buttons and content
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        // Activate blog tab
+        document.querySelector('.tab-button[data-tab="blog"]').classList.add('active');
+        document.getElementById('blog-tab').classList.add('active');
+    }
     
             // Close menu when clicking outside
             document.addEventListener('click', function(e) {

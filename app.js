@@ -681,7 +681,7 @@ app.post('/admin/add-blog', isAuthenticated, upload.single('blogImage'), (req, r
             }
 
             db.run('COMMIT');
-            res.redirect('/admin');
+            res.redirect('/admin?tab=blog');
         });
     });
 });
@@ -1035,7 +1035,7 @@ app.post('/admin/update-blog/:id', isAuthenticated, upload.single('blogImage'), 
             });
         });
         
-        return res.redirect('/admin');
+        return res.redirect('/admin?tab=blog');
         
     } catch (error) {
         // Rollback transaction on any error
