@@ -777,6 +777,27 @@
                 });
             }
         });
+
+        // Add delete confirmation to all delete forms
+document.querySelectorAll('.delete-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Determine if it's a gallery or blog post
+        const isGallery = form.action.includes('delete-gallery');
+        const itemType = isGallery ? 'gallery' : 'blog post';
+        
+        // Find the title of the item being deleted
+        const card = form.closest('.admin-card');
+        const title = card.querySelector('.admin-card-title').textContent;
+        
+        // Create and show the confirmation dialog
+        if (confirm(`Warning: Are you sure you want to delete this ${itemType}?\n\n"${title}"\n\nThis action cannot be undone.`)) {
+            // If confirmed, submit the form
+            form.submit();
+        }
+    });
+});
     </script>
 </body>
 </html>
