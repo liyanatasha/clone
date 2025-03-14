@@ -39,7 +39,7 @@
             display: flex;
             justify-content: center;
             max-width: 1200px;
-            margin: -100px auto 0;
+            margin: -100px auto 100px;
             padding: 0 20px;
             position: relative;
             z-index: 2;
@@ -188,6 +188,11 @@
             .input-group {
                 margin-right: 0; /* Remove margin for mobile view */
             }
+
+            .input-group input,
+    .input-group textarea {
+        width: calc(100% - 24px); /* Subtract the padding to prevent overflow */
+    }
         }
     </style>
 </head>
@@ -216,6 +221,15 @@
     <div class="main-content">
         <!-- Contact Intro Section -->
         <section class="contact-section">
+            <div class="geometric-circle"></div>
+<div class="geometric-circle-2"></div>
+<div class="geometric-circle-3"></div>
+    <div class="geometric-circle-4"></div>
+<div class="geometric-cube"></div>
+<div class="geometric-cube-2"></div>
+<div class="geometric-circle-5"></div>
+<div class="geometric-circle-6"></div>
+
             <div class="contact-intro">
                 <h1>Contact Us</h1>
                 <p>We're here to help! Whether you have questions about our services or need assistance, feel free to reach out. Use the form below or connect with us via WhatsApp.</p>

@@ -117,6 +117,7 @@ body {
     background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
 }
 
+
 .geometric-circle-2 {
     width: 250px;
     height: 250px;
@@ -125,10 +126,34 @@ body {
     background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
 }
 
+.geometric-circle-5 {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    top: 20%;
+    left: -5%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    z-index: -1;
+}
+
+.geometric-circle-6 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 40%;
+    right: -5%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    z-index: -1;
+}
+
 .geometric-cube, .geometric-cube-2 {
     background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
     transform: rotate(45deg);
 }
+
+
 
 .geometric-cube {
     width: 200px;
@@ -142,6 +167,30 @@ body {
     height: 150px;
     top: 15%;
     left: 40%;
+}
+
+
+
+.geometric-circle-3 {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: 30%;
+    right: 30%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    z-index: -1;
+}
+
+.geometric-circle-4 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 35%;
+    left: 15%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 65%);
+    z-index: -1;
 }
 
 /* Yellow Line */
@@ -187,6 +236,7 @@ body {
     margin-top: -560px;
     position: relative;
     z-index: 2;
+    margin-bottom: 100px;
 }
 
 .photo-frame {
@@ -318,7 +368,7 @@ body {
 
     .slanted-background {
         clip-path: polygon(0 0, 0 75%, 100% 90%, 100% 0);
-        height: 800px;
+        height: 850px;
         margin-bottom: -150px;
     }
 
@@ -327,27 +377,36 @@ body {
         object-position: top; /* Keep focus on important parts of images */
       }
 
+      /* Target specifically the second image to center it */
+    .piece2 img {
+        object-position: 70% 70% !important; /* Center focus for grid_2.jpg */
+    }
+
+    .piece7 img {
+        object-position: 50% 30% !important; /* Center focus for grid_2.jpg */
+    }
+
     .yellow-line {
-        height: 800px;
+        height: 850px;
         clip-path: polygon(0 74%, 100% 89%, 100% 92%, 0 75%);
     }
 
     .hero-content {
         padding-top: 150px;
+        padding-bottom: 270px;
     }
 
     .hero-content h1 {
-        font-size: 2rem;
         padding: 0 1rem;
     }
 
     .hero-content p {
-        font-size: 1rem;
         padding: 0 1rem;
     }
 
     .photo-frame-container {
-        margin-top: -400px;
+        margin-top: -300px;
+        margin-bottom: 80px;
     }
 
     .photo-frame {
@@ -409,24 +468,30 @@ body {
 
 @media (max-width: 664px) {
     .slanted-background {
-        height: 600px;
+        height: 650px;
         margin-bottom: -100px;
     }
 
     .yellow-line {
-        height: 600px;
+        height: 650px;
+    }
+
+    hero-content {
+        padding-bottom: 160px; /* Reduced from 220px to create less gap */
+    }
+    
+    /* Increase font size for small screens */
+    .hero-content h1 {
+        font-size: calc(1.5rem + 0.5vw); /* Increased from 1.2rem to 1.5rem */
+    }
+    
+    .hero-content p {
+        font-size: calc(0.9rem + 0.2vw); /* Increased from 0.75rem to 0.9rem */
     }
 
     .photo-frame-container {
-        margin-top: -200px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.2rem;
-    }
-
-    .hero-content p {
-        font-size: 0.75rem;
+        margin-top: -160px !important; /* Changed from -180px to bring it higher */
+        margin-bottom: 60px; /* Further adjust margin for small screens */
     }
 
     .menu-toggle {
