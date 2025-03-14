@@ -11,43 +11,22 @@
             height: 100%;
             margin: 0;
         }
-
+    
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-
+    
         /* Blog Header Section */
         .blog-hero {
             background-color: #643c94;
             clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-            padding: 150px 0 200px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: -100px;
+            padding: 120px 0 200px;
+            
         }
-
-        .geometric-accent {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .accent-1 {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            right: 5%;
-        }
-
-        .accent-2 {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            left: 10%;
-        }
-
+    
+    
         .blog-hero-content {
             max-width: 800px;
             margin: 0 auto;
@@ -55,39 +34,43 @@
             color: white;
             padding: 0 20px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
-
+    
         .blog-hero-content h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
-
+    
         .blog-hero-content p {
             font-size: 1.2rem;
-            opacity: 0.9;
+            line-height: 1.6;
+            opacity: 1;
         }
-
+    
         /* Main Content Area */
         .main-content {
             flex: 1 0 auto;
             width: 100%;
+            padding-top: 100px;
         }
-
+    
         /* Blog Grid Container */
         .blog-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 2;
         }
-
+    
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
-
+    
         /* Blog Card Styling */
         .blog-card {
             background: white;
@@ -97,47 +80,47 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 3px solid transparent;
         }
-
+    
         .blog-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             border-color: #f3eb2e;
         }
-
+    
         .blog-image-container {
             position: relative;
             height: 200px;
             overflow: hidden;
         }
-
+    
         .blog-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
-
+    
         .blog-card:hover .blog-image {
             transform: scale(1.05);
         }
-
+    
         .blog-content {
             padding: 25px;
         }
-
+    
         .blog-title {
             color: #643c94;
             font-size: 1.5rem;
             margin-bottom: 15px;
             line-height: 1.3;
         }
-
+    
         .blog-excerpt {
             color: #666;
             margin-bottom: 20px;
             line-height: 1.6;
         }
-
+    
         /* Tag Styling */
         .blog-tags {
             display: flex;
@@ -145,7 +128,7 @@
             gap: 8px;
             margin-bottom: 20px;
         }
-
+    
         .blog-tag {
             background: #f3eb2e;
             color: #643c94;
@@ -155,12 +138,12 @@
             font-weight: 600;
             transition: background 0.3s ease;
         }
-
+    
         .blog-tag:hover {
             background: #643c94;
             color: #f3eb2e;
         }
-
+    
         /* Meta Information */
         .blog-meta {
             display: flex;
@@ -169,12 +152,12 @@
             padding-top: 15px;
             border-top: 1px solid #eee;
         }
-
+    
         .blog-date {
             color: #888;
             font-size: 0.9rem;
         }
-
+    
         .read-more {
             color: #643c94;
             text-decoration: none;
@@ -184,20 +167,20 @@
             gap: 5px;
             transition: color 0.3s ease;
         }
-
+    
         .read-more:hover {
             color: #f3eb2e;
         }
-
+    
         .read-more::after {
             content: '→';
             transition: transform 0.3s ease;
         }
-
+    
         .read-more:hover::after {
             transform: translateX(5px);
         }
-
+    
         /* Pagination Styling */
         .pagination {
             display: flex;
@@ -206,7 +189,7 @@
             margin-top: 50px;
             padding-bottom: 50px;
         }
-
+    
         .pagination-button {
             padding: 10px 20px;
             background: #643c94;
@@ -217,19 +200,19 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-
+    
         .pagination-button:hover {
             background: #f3eb2e;
             color: #643c94;
             transform: translateY(-2px);
         }
-
+    
         .pagination-button.active {
             background: #f3eb2e;
             color: #643c94;
             font-weight: bold;
         }
-
+    
         /* Footer Styling */
         .site-footer {
             flex-shrink: 0;
@@ -237,37 +220,41 @@
             padding: 30px 0;
             margin-top: auto;
         }
-
+    
         /* Responsive Design */
         @media (max-width: 768px) {
             .blog-hero {
-                padding: 120px 0 150px;
+                padding: 100px 0 150px;
                 margin-bottom: -50px;
             }
-
+    
             .blog-hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-
+    
+            .blog-hero-content p {
+                font-size: 1rem;
+            }
+    
             .blog-grid {
                 grid-template-columns: 1fr;
             }
-
+    
             .blog-card {
                 max-width: 500px;
                 margin: 0 auto;
             }
         }
-
+    
         @media (max-width: 480px) {
             .blog-hero-content h1 {
                 font-size: 1.8rem;
             }
-
+    
             .blog-content {
                 padding: 20px;
             }
-
+    
             .blog-title {
                 font-size: 1.3rem;
             }
@@ -300,13 +287,13 @@
         <!-- Blog Hero Section -->
         <section class="blog-hero">
             <div class="geometric-circle"></div>
-<div class="geometric-circle-2"></div>
-<div class="geometric-circle-3"></div>
-    <div class="geometric-circle-4"></div>
-    <div class="geometric-circle-5"></div>
-<div class="geometric-circle-6"></div>
-<div class="geometric-cube"></div>
-<div class="geometric-cube-2"></div>
+            <div class="geometric-circle-2"></div>
+            <div class="geometric-circle-3"></div>
+            <div class="geometric-circle-4"></div>
+            <div class="geometric-circle-5"></div>
+            <div class="geometric-circle-6"></div>
+            <div class="geometric-cube"></div>
+            <div class="geometric-cube-2"></div>
             <div class="blog-hero-content">
                 <h1>Blog</h1>
                 <p>Explore expert tips, strategies and insights on leadership development, workplace communication, teamwork and professional growth to help your team succeed.</p>

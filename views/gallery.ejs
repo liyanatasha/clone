@@ -7,117 +7,134 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         .main-content {
-            padding-top: 100px;
-            background-color: #f8f9fa;
-        }
+    padding-top: 100px;
+    background-color: #f8f9fa;
+}
 
-        .gallery-header {
-            background-color: #643c94;
-            clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-            padding: 120px 0 200px;
-            color: white;
-            text-align: center;
-            margin-bottom: -100px;
-        }
+.gallery-header {
+    background-color: #643c94;
+    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+    padding: 120px 0 200px;
+    color: white;
+}
 
-        .gallery-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+.gallery-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
 
-        .gallery-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
+.gallery-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
 
-        .gallery-entry {
-            background: white;
-            margin-bottom: 40px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border: 4px solid #f3eb2e;
-        }
+.gallery-intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
 
-        .gallery-entry h2 {
-            color: #643c94;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
+.gallery-container {
+    max-width: 1200px;
+    margin: -100px auto 0;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
+.gallery-entry {
+    background: white;
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 4px solid #f3eb2e;
+}
 
-        .gallery-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            aspect-ratio: 1;
-        }
+.gallery-entry h2 {
+    color: #643c94;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
 
-        .description {
-            color: #666;
-            margin: 15px 0;
-            line-height: 1.6;
-        }
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
-        .meta {
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 15px;
-        }
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
 
-        @media (max-width: 768px) {
-            .gallery-header {
-                padding: 100px 0 150px;
-                clip-path: polygon(0 0, 0 90%, 100% 95%, 100% 0);
-            }
+.description {
+    color: #666;
+    margin: 15px 0;
+    line-height: 1.6;
+}
 
-            .gallery-header h1 {
-                font-size: 2rem;
-            }
+.meta {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
 
-            .gallery-entry {
-                padding: 20px;
-            }
+@media (max-width: 768px) {
+    .gallery-header {
+        padding: 100px 0 150px;
+    }
 
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 15px;
-            }
-        }
+    .gallery-intro h1 {
+        font-size: 2rem;
+    }
 
-        @media (max-width: 480px) {
-            .gallery-header {
-                padding: 80px 0 120px;
-            }
+    .gallery-intro p {
+        font-size: 1rem;
+    }
 
-            .gallery-header h1 {
-                font-size: 1.75rem;
-            }
+    .gallery-container {
+        margin-top: -50px;
+    }
 
-            .gallery-entry h2 {
-                font-size: 1.5rem;
-            }
-        }
+    .gallery-entry {
+        padding: 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-header {
+        padding: 80px 0 120px;
+    }
+
+    .gallery-intro h1 {
+        font-size: 1.75rem;
+    }
+
+    .gallery-entry h2 {
+        font-size: 1.5rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -146,15 +163,17 @@
         <!-- Gallery Header Section -->
         <section class="gallery-header">
             <div class="geometric-circle"></div>
-<div class="geometric-circle-2"></div>
-<div class="geometric-circle-3"></div>
-    <div class="geometric-circle-4"></div>
-    <div class="geometric-circle-5"></div>
-<div class="geometric-circle-6"></div>
-<div class="geometric-cube"></div>
-<div class="geometric-cube-2"></div>
-            <h1>Activities Gallery</h1>
-            <p>Experience the impact of our leadership training and team-building programs through moments of growth, collaboration and professional development that drive lasting workplace transformation.</p>
+            <div class="geometric-circle-2"></div>
+            <div class="geometric-circle-3"></div>
+            <div class="geometric-circle-4"></div>
+            <div class="geometric-circle-5"></div>
+            <div class="geometric-circle-6"></div>
+            <div class="geometric-cube"></div>
+            <div class="geometric-cube-2"></div>
+            <div class="gallery-intro">
+                <h1>Activities Gallery</h1>
+                <p>Experience the impact of our leadership training and team-building programs through moments of growth, collaboration and professional development that drive lasting workplace transformation.</p>
+            </div>
         </section>
 
         <!-- Gallery Content -->

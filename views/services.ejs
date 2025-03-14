@@ -7,38 +7,40 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         /* Services-specific styles */
+        .main-content {
+            padding-top: 100px;
+            color: #643c94;
+        }
+        
         .services-hero {
             background-color: #643c94;
             clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
             padding: 120px 0 200px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: -100px;
+            color: white;
         }
-
-        .services-hero-content {
+    
+        .services-intro {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
             padding: 0 20px;
             position: relative;
             z-index: 2;
-            color: white;
         }
-
-        .services-hero-content h1 {
+    
+        .services-intro h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
-
-        .services-hero-content p {
+    
+        .services-intro p {
             font-size: 1.2rem;
             line-height: 1.6;
         }
-
+    
         .services-container {
             max-width: 1200px;
-            margin: -50px auto 50px;
+            margin: -100px auto 50px;
             padding: 0 20px;
             position: relative;
             z-index: 2;
@@ -47,7 +49,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-
+    
         .service-card {
             flex: 1;
             min-width: 300px;
@@ -59,46 +61,46 @@
             border: 3px solid #f3eb2e;
             transition: transform 0.3s ease;
         }
-
+    
         .service-card:hover {
             transform: translateY(-10px);
         }
-
+    
         .service-image {
             height: 200px;
             overflow: hidden;
             position: relative;
         }
-
+    
         .service-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+    
         .service-content {
             padding: 30px;
             color: #643c94;
         }
-
+    
         .service-content h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
             color: #643c94;
         }
-
+    
         .service-content p {
             margin-bottom: 20px;
             line-height: 1.6;
             color: #666;
         }
-
+    
         .service-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
+    
         .service-list li {
             margin: 10px 0;
             padding-left: 25px;
@@ -107,107 +109,121 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+    
         .service-list li::before {
             content: '•';
-    position: absolute;
-    left: 0;
-    color: #f3eb2e;
-    font-size: 1.5em;
-    line-height: 1;
-    transition: all 0.3s ease;
+            position: absolute;
+            left: 0;
+            color: #f3eb2e;
+            font-size: 1.5em;
+            line-height: 1;
+            transition: all 0.3s ease;
         }
-
+    
         /* Add subtle hover effect without disrupting the original design */
-.service-list li:hover {
-    transform: translateX(5px);
-}
-
-.service-list li:hover::before {
-    transform: scale(1.2);
-}
-
-/* Modal Styles */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal {
-    display: none;
-    position: relative;
-    width: 50%;
-    max-width: 600px;
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    border: 3px solid #f3eb2e;
-}
-
-.modal-content {
-    color: #643c94;
-}
-
-.modal-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.modal-content p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #643c94;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.close-modal:hover {
-    background: #f3eb2e;
-    transform: scale(1.1);
-}
-
+        .service-list li:hover {
+            transform: translateX(5px);
+        }
+    
+        .service-list li:hover::before {
+            transform: scale(1.2);
+        }
+    
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .modal {
+            display: none;
+            position: relative;
+            width: 50%;
+            max-width: 600px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 3px solid #f3eb2e;
+        }
+    
+        .modal-content {
+            color: #643c94;
+        }
+    
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+    
+        .modal-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+    
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #643c94;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+    
+        .close-modal:hover {
+            background: #f3eb2e;
+            transform: scale(1.1);
+        }
+    
         @media (max-width: 768px) {
             .services-hero {
                 padding: 100px 0 150px;
             }
-
-            .services-hero-content h1 {
+    
+            .services-intro h1 {
                 font-size: 2rem;
             }
-
-            .services-container {
-                margin-top: -30px;
+            
+            .services-intro p {
+                font-size: 1rem;
             }
-
+    
+            .services-container {
+                margin-top: -50px;
+            }
+    
             .service-card {
                 width: 100%;
             }
-
+    
             .modal {
-        width: 90%;
-        margin: 20px;
-    }
+                width: 90%;
+                margin: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .services-hero {
+                padding: 80px 0 120px;
+            }
+    
+            .services-intro h1 {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
@@ -232,14 +248,18 @@
             </button>
         </div>
     </header>
-
+    <div class="main-content">
     <!-- Hero Section -->
     <section class="services-hero">
         <div class="geometric-circle"></div>
         <div class="geometric-circle-2"></div>
+        <div class="geometric-circle-3"></div>
+        <div class="geometric-circle-4"></div>
+        <div class="geometric-circle-5"></div>
+        <div class="geometric-circle-6"></div>
         <div class="geometric-cube"></div>
         <div class="geometric-cube-2"></div>
-        <div class="services-hero-content">
+        <div class="services-intro">
             <h1>Our Services</h1>
             <p>Discover our comprehensive range of corporate training, leadership development and team-building programs designed to boost productivity, teamwork and employee engagement in your organization.</p>
         </div>
@@ -285,7 +305,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
