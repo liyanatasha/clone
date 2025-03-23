@@ -260,38 +260,47 @@
             </div>
 
             <!-- Right Side: Contact Form -->
-            <form class="contact-form" action="/submit-contact" method="POST">
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="name">Name (required)</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">Email (required)</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
+            <!-- Right before the form section in your contact.ejs file -->
+<div id="successMessage" style="display: none; background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-weight: bold;">
+    ✅ Your message has been sent successfully! We'll get back to you soon.
+</div>
 
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="phone">Phone Number (required)</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="company">Company Name (optional)</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                </div>
+<!-- Replace your existing form with this -->
+<form class="contact-form" action="https://formspree.io/f/liyananatasha@hotmail.com" method="POST">
+    <div class="form-row">
+        <div class="input-group">
+            <label for="name">Name (required)</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email (required)</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+    </div>
 
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="message">Your Message (required)</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                </div>
+    <div class="form-row">
+        <div class="input-group">
+            <label for="phone">Phone Number (required)</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="input-group">
+            <label for="company">Company Name (optional)</label>
+            <input type="text" id="company" name="company">
+        </div>
+    </div>
 
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+    <div class="form-row">
+        <div class="input-group">
+            <label for="message">Your Message (required)</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+    </div>
+
+    <!-- Redirect back to your site after submission -->
+    <input type="hidden" name="_next" value="/contact?status=success">
+    
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
         </div>
     </div>
 
@@ -342,6 +351,17 @@
                     nav.classList.remove('active');
                 });
             });
+
+            // Check for success parameter in URL
+        if (window.location.search.includes('status=success')) {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            // Auto-hide after 5 seconds
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
         });
     </script>
 </body>
