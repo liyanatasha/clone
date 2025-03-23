@@ -328,33 +328,80 @@
     <!-- Mobile Menu Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('.main-header nav ul');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-header nav ul');
+    
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+        }
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.main-header nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+
+    // Handle form submission with AJAX
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
             
-            menuToggle.addEventListener('click', function() {
-                this.classList.toggle('active');
-                nav.classList.toggle('active');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-                    menuToggle.classList.remove('active');
-                    nav.classList.remove('active');
+            const formData = new FormData(contactForm);
+            const submitButton = contactForm.querySelector('.submit-btn');
+            const originalButtonText = submitButton.textContent;
+            
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            fetch('https://formspree.io/f/xrbpqolw', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    const successMessage = document.getElementById('successMessage');
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was a problem sending your message. Please try again.');
+            })
+            .finally(() => {
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
             });
+        });
+    }
 
-            // Close menu when clicking a link
-            document.querySelectorAll('.main-header nav ul li a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    nav.classList.remove('active');
-                });
-            });
-
-            // Check for success parameter in URL
-        if (window.location.search.includes('status=success')) {
-            const successMessage = document.getElementById('successMessage');
+    // Check for success parameter in URL (fallback for non-JS submissions)
+    if (window.location.search.includes('status=success')) {
+        const successMessage = document.getElementById('successMessage');
+        if (successMessage) {
             successMessage.style.display = 'block';
             
             // Auto-hide after 5 seconds
@@ -362,7 +409,8 @@
                 successMessage.style.display = 'none';
             }, 5000);
         }
-        });
+    }
+});
     </script>
 </body>
 </html>
