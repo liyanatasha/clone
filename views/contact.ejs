@@ -261,12 +261,12 @@
 
             <!-- Right Side: Contact Form -->
             <!-- Right before the form section in your contact.ejs file -->
-<div id="successMessage" style="display: none; background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-weight: bold;">
-    ✅ Your message has been sent successfully! We'll get back to you soon.
-</div>
+            <div id="successMessage" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #d4edda; color: #155724; padding: 15px 30px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1000; font-weight: bold; max-width: 90%;">
+                ✅ Your message has been sent successfully! We'll get back to you soon.
+            </div>
 
 <!-- Replace your existing form with this -->
-<form class="contact-form" action="https://formspree.io/f/xrbpqolw" method="POST">
+<form class="contact-form" action="https://formspree.io/f/mblgopqe" method="POST">
     <div class="form-row">
         <div class="input-group">
             <label for="name">Name (required)</label>
@@ -365,7 +365,7 @@
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
             
-            fetch('https://formspree.io/f/xrbpqolw', {
+            fetch('https://formspree.io/f/mblgopqe', {
                 method: 'POST',
                 body: formData,
                 headers: {
