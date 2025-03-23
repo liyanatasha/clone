@@ -523,3 +523,18 @@ body {
         right: 25px;
     }
 }
+
+@media (max-width: 420px) {
+    .photo-frame-container {
+        margin-top: -160px !important; /* Changed from -180px to bring it higher */
+        margin-bottom: 60px; /* Further adjust margin for small screens */
+    }
+
+    .hero-content h1 {
+        font-size: calc(1.2rem + 0.5vw); /* Increased from 1.2rem to 1.5rem */
+    }
+    
+    .hero-content p {
+        font-size: calc(0.75rem + 0.2vw); /* Increased from 0.75rem to 0.9rem */
+    }
+}
