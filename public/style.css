@@ -103,7 +103,7 @@ body {
 }
 
 /* Geometric Shapes */
-.geometric-circle, .geometric-circle-2, .geometric-cube, .geometric-cube-2 {
+.geometric-circle, .geometric-circle-2, .geometric-circle-3, .geometric-circle-4, .geometric-circle-5, .geometric-circle-6 {
     position: absolute;
     border-radius: 50%;
     z-index: -1;
@@ -116,7 +116,6 @@ body {
     right: 2%;
     background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
 }
-
 
 .geometric-circle-2 {
     width: 250px;
@@ -151,9 +150,9 @@ body {
 .geometric-cube, .geometric-cube-2 {
     background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
     transform: rotate(45deg);
+    position: absolute;
+    z-index: -1;
 }
-
-
 
 .geometric-cube {
     width: 200px;
@@ -168,8 +167,6 @@ body {
     top: 15%;
     left: 40%;
 }
-
-
 
 .geometric-circle-3 {
     position: absolute;
@@ -212,6 +209,7 @@ body {
     z-index: 2;
     text-align: center;
     padding-top: 200px;
+    padding-bottom: 300px; /* Increased padding to create more space */
     max-width: 1200px;
     margin: 0 auto;
     padding-left: 20px;
@@ -233,7 +231,7 @@ body {
 .photo-frame-container {
     display: flex;
     justify-content: center;
-    margin-top: -560px;
+    margin-top: -500px; /* Adjusted to create proper spacing */
     position: relative;
     z-index: 2;
     margin-bottom: 100px;
@@ -291,10 +289,6 @@ body {
     padding: 30px 0;
     margin-top: auto;
 }
-
-
-
-
 
 .footer-content {
     max-width: 1200px;
@@ -358,12 +352,24 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1040px) {
+    .hero-content {
+        padding-top: 180px;
+        padding-bottom: 350px; /* Increased padding at the bottom */
+    }
+    
+    .photo-frame-container {
+        margin-top: -400px; /* Reduced negative margin to move down */
+        margin-bottom: 80px;
+    }
+}
+
 @media (max-width: 1023px) {
     .menu-toggle {
         display: block;
         position: fixed;
         right: 20px;
-        top: 20px;
+        top: 40px; 
     }
 
     .main-header nav ul {
@@ -392,16 +398,16 @@ body {
 
     .slanted-background {
         clip-path: polygon(0 0, 0 75%, 100% 90%, 100% 0);
-        height: 850px;
-        margin-bottom: -150px;
+        height: 900px; /* Increased height */
+        margin-bottom: -100px;
     }
 
     .image-piece img {
         max-height: auto; /* Prevent images from becoming too tall */
         object-position: top; /* Keep focus on important parts of images */
-      }
+    }
 
-      /* Target specifically the second image to center it */
+    /* Target specifically the second image to center it */
     .piece2 img {
         object-position: 70% 70% !important; /* Center focus for grid_2.jpg */
     }
@@ -411,13 +417,13 @@ body {
     }
 
     .yellow-line {
-        height: 850px;
+        height: 900px;
         clip-path: polygon(0 74%, 100% 89%, 100% 92%, 0 75%);
     }
 
     .hero-content {
         padding-top: 150px;
-        padding-bottom: 270px;
+        padding-bottom: 400px; /* Significantly increased to avoid overlap */
     }
 
     .hero-content h1 {
@@ -496,8 +502,6 @@ body {
         margin-top: 10px;
     }
 
-
-
     /* Hamburger Icon Animation */
     .menu-toggle.active .hamburger {
         background: transparent;
@@ -516,50 +520,56 @@ body {
 
 @media (max-width: 664px) {
     .slanted-background {
-        height: 650px;
+        height: 800px; /* Increased from 650px */
         margin-bottom: -100px;
     }
 
     .yellow-line {
-        height: 650px;
+        height: 800px; /* Increased to match background */
     }
 
-    hero-content {
-        padding-bottom: 160px; /* Reduced from 220px to create less gap */
+    .hero-content {
+        padding-top: 170px; /* Increased from 150px to create more space below header */
+        padding-bottom: 320px; /* Increased padding */
     }
     
+    .photo-frame-container {
+        margin-top: -300px !important; /* Move frame down */
+        margin-bottom: 60px;
+    }
+
     /* Increase font size for small screens */
     .hero-content h1 {
-        font-size: calc(1.5rem + 0.5vw); /* Increased from 1.2rem to 1.5rem */
+        font-size: calc(1.5rem + 0.5vw);
     }
     
     .hero-content p {
-        font-size: calc(0.9rem + 0.2vw); /* Increased from 0.75rem to 0.9rem */
-    }
-
-    .photo-frame-container {
-        margin-top: -160px !important; /* Changed from -180px to bring it higher */
-        margin-bottom: 60px; /* Further adjust margin for small screens */
+        font-size: calc(0.9rem + 0.2vw);
     }
 
     .menu-toggle {
-        top: 25px;
+        top: 40px;
         right: 25px;
     }
 }
 
 @media (max-width: 420px) {
+    .hero-content {
+        padding-top: 190px; /* Increased further for smallest screens */
+        padding-bottom: 280px; /* Adjusted for smallest screens */
+    }
+    
     .photo-frame-container {
-        margin-top: -160px !important; /* Changed from -180px to bring it higher */
-        margin-bottom: 60px; /* Further adjust margin for small screens */
+        margin-top: -280px !important; /* Move frame down further */
+        margin-bottom: 60px;
     }
 
     .hero-content h1 {
-        font-size: calc(1.2rem + 0.5vw); /* Increased from 1.2rem to 1.5rem */
+        font-size: calc(1.2rem + 0.5vw);
     }
     
     .hero-content p {
-        font-size: calc(0.75rem + 0.2vw); /* Increased from 0.75rem to 0.9rem */
+        font-size: calc(0.75rem + 0.2vw);
     }
 
     .footer-social {
@@ -574,6 +584,4 @@ body {
     .brand-logo {
         width: 180px;
     }
-    
 }
-
