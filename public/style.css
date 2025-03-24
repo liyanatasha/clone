@@ -466,13 +466,37 @@ body {
 
     .footer-content {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
     }
 
     .footer-social {
-        flex-wrap: wrap;
+        display: flex;
         justify-content: center;
+        gap: 20px;
+        margin-top: 10px;
     }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+    
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .brand-logo {
+        margin-bottom: 5px;
+    }
+
+    .footer-copyright {
+        margin-top: 10px;
+    }
+
+
 
     /* Hamburger Icon Animation */
     .menu-toggle.active .hamburger {
@@ -537,4 +561,19 @@ body {
     .hero-content p {
         font-size: calc(0.75rem + 0.2vw); /* Increased from 0.75rem to 0.9rem */
     }
+
+    .footer-social {
+        gap: 15px;
+    }
+    
+    .social-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .brand-logo {
+        width: 180px;
+    }
+    
 }
+
