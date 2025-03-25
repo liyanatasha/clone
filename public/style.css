@@ -1,4 +1,24 @@
 /* Global Styles */
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .main-header, 
+  .about-section, 
+  .contact-section,
+  .blog-hero, 
+  .gallery-header,
+  .about-container, 
+  .contact-container, 
+  .blog-container, 
+  .gallery-container,
+  .site-footer {
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -556,9 +576,7 @@ body {
         clip-path: polygon(0 0, 0 90%, 100% 95%, 100% 0);
      }
      
-     .about-container, .contact-container, .blog-container, .gallery-container {
-        margin-top: -40px; /* Reduce negative margin for mobile */
-     }
+  
 }
 
 @media (max-width: 420px) {
@@ -593,8 +611,5 @@ body {
         width: 180px;
     }
 
-    .about-section, .contact-section, .blog-hero, .gallery-header {
-        clip-path: polygon(0 0, 0 92%, 100% 96%, 100% 0);
-        padding-bottom: 100px; /* Reduce bottom padding */
-     }
+
 }
