@@ -109,6 +109,16 @@ app.get('/contact', (req, res) => {
     res.render('contact');
 });
 
+// Learning Programme route
+app.get('/learning-programme', (req, res) => {
+    res.render('learning-programme');
+});
+
+// Team Building route
+app.get('/team-building', (req, res) => {
+    res.render('team-building');
+});
+
 // Gallery routes
 app.get('/gallery', (req, res) => {
     db.all(`
