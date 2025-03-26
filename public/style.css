@@ -1,34 +1,6 @@
 /* Global Styles */
 
-/* Apply this to your style.css file */
-body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-  
-  /* Keep these separate from body styling */
-  .about-section,
-  .contact-section,
-  .blog-hero,
-  .gallery-header,
-  .teambuilding-hero {
-    position: relative;
-    width: 100%;
-  }
-  
-  /* Make sure any absolute positioned elements within sections stay visible */
-  .geometric-circle,
-  .geometric-circle-2,
-  .geometric-circle-3,
-  .geometric-circle-4,
-  .geometric-circle-5,
-  .geometric-circle-6,
-  .geometric-cube,
-  .geometric-cube-2 {
-    /* Keep their absolute positioning intact */
-    position: absolute;
-    z-index: -1;
-  }
+
 
 body {
     margin: 0;

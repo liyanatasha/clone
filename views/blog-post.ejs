@@ -7,99 +7,117 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         .blog-post-container {
-            max-width: 800px;
-            margin: 150px auto 60px;  /* Increased top margin */
-            padding: 0 20px;
-        }
+    max-width: 800px;
+    margin: 150px auto 60px;  /* Increased top margin */
+    padding: 0 20px;
+}
 
-        .blog-post-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.blog-post-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-        .blog-post-title {
-            color: #643c94;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+.blog-post-title {
+    color: #643c94;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
 
-        .blog-post-meta {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
+.blog-post-meta {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
 
-        .blog-post-tags {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
+.blog-post-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
 
-        .blog-tag {
-            background: #f3eb2e;
-            color: #643c94;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
+.blog-tag {
+    background: #f3eb2e;
+    color: #643c94;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
 
-        .blog-featured-image {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 40px;
-        }
+.blog-featured-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
 
-        .blog-post-content {
-            color: #333;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 60px;
-        }
+.blog-post-content {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 60px;
+}
 
-        .blog-post-content p {
-            margin-bottom: 20px;
-        }
+.blog-post-content p {
+    margin-bottom: 20px;
+}
 
-        .back-to-blog {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #643c94;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 30px;
-            padding: 12px 24px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+.back-to-blog {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #643c94;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 30px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-        .back-to-blog:hover {
-            background-color: #f3eb2e;
-            color: #643c94;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
+.back-to-blog:hover {
+    background-color: #f3eb2e;
+    color: #643c94;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
 
-        @media (max-width: 768px) {
-            .blog-post-container {
-                margin-top: 100px;
-            }
+@media (max-width: 768px) {
+    .blog-post-container {
+        margin-top: 150px; /* Increased from 120px */
+    }
 
-            .blog-post-title {
-                font-size: 2rem;
-            }
+    .blog-post-title {
+        font-size: 2rem;
+    }
 
-            .blog-post-content {
-                font-size: 1rem;
-            }
-        }
+    .blog-post-content {
+        font-size: 1rem;
+    }
+    
+    /* Add more space for the back button specifically */
+    .back-to-blog {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Additional media query for even smaller screens */
+@media (max-width: 480px) {
+    .blog-post-container {
+        margin-top: 170px; /* Even more space on smaller screens */
+    }
+    
+    /* Further increase space for smallest screens */
+    .back-to-blog {
+        margin-top: 30px;
+    }
+}
     </style>
 </head>
 <body>
