@@ -1,7 +1,4 @@
 /* Global Styles */
-
-
-
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -13,7 +10,9 @@ body {
     min-height: 100vh;
 }
 
-
+html {
+    overflow-x: hidden;
+  }
 
 /* Header Styles */
 .main-header {
@@ -595,39 +594,19 @@ body {
 
 
 
-/* Hero and other sections to overflow to the right */
-.hero-content, .blog-hero, .teambuilding-hero, .learning-hero, .contact-section {
-    width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
-    overflow-x: visible; /* Allow horizontal overflow */
-}
 
-/* Footer to overflow to the right */
-.site-footer {
-    width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
-    position: relative;
-    overflow-x: visible;
-}
 
-/* Prevent horizontal scroll on body */
-body {
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
 
-/* Ensure no width constraints */
-.main-content, .main-header {
-    width: 100vw;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* Slanted background section */
-.slanted-background {
-    width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
+@media (max-width: 1250px) and (min-width: 1024px) {
+    .main-header nav {
+        margin-right: 30px; /* Add right margin to shift menu left */
+    }
+    
+    .main-header nav ul {
+        gap: 18px; /* Slightly reduce the gap between nav items */
+    }
+    
+    .main-header nav ul li a {
+        padding: 10px 12px; /* Slightly reduce horizontal padding */
+    }
 }
