@@ -423,6 +423,82 @@
 .ql-editor img.selected {
     border: 2px solid #643c94;
 }
+
+
+
+
+
+
+/* Fix for admin pages (dashboard, edit-blog, edit-gallery) */
+
+/* Force body to hide overflow */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Fix admin container */
+.admin-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Fix form containers */
+.admin-form, .form-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Make sure header and footer are contained */
+.main-header, .site-footer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Fix admin grid and card layout */
+.admin-grid, .admin-card, .gallery-grid, .image-grid {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Add media query to handle horizontal overflow on small screens */
+@media (max-width: 768px) {
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .admin-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .admin-form {
+        padding: 20px 15px;
+    }
+    
+    input, textarea, select, button {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
     </style>
 </head>
 <body>

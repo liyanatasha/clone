@@ -118,6 +118,101 @@
         margin-top: 30px;
     }
 }
+
+
+
+
+/* Fix for blog-post.ejs - preserving image alignment options */
+
+/* Force body to hide overflow */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Fix main content container */
+.main-content {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Fix blog post container */
+.blog-post-container {
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+/* Fix blog post header - keep it centered */
+.blog-post-header {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure post content can have various alignments */
+.blog-post-content {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Just contain the overflow */
+}
+
+/* Preserve alignment options for images */
+.blog-post-content img {
+    max-width: 100%; /* Limit width to container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Support for left/right aligned images */
+.blog-post-content img.align-left {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.blog-post-content img.align-right {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* Make sure header and footer are contained */
+.main-header, .site-footer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Add media query to handle horizontal overflow on small screens */
+@media (max-width: 768px) {
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .blog-post-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Adjust floating images on small screens */
+    .blog-post-content img.align-left,
+    .blog-post-content img.align-right {
+        float: none;
+        display: block;
+        margin: 20px auto;
+    }
+}
     </style>
 </head>
 <body>

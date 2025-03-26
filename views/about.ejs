@@ -353,6 +353,137 @@
         padding: 15px;
     }
 }
+
+
+
+
+/* Fix for additional pages (about, blog-post, contact, learning-programme, team-building) */
+
+/* Force body to hide overflow */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Fix main content container */
+.main-content {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Fix section containers */
+.about-section, 
+.blog-post-container,
+.contact-section,
+.learning-hero,
+.teambuilding-hero {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+}
+
+/* Fix clip-path which might be causing overflow */
+.about-section,
+.contact-section,
+.learning-hero,
+.teambuilding-hero {
+    -webkit-clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+}
+
+/* Fix intro containers */
+.about-intro,
+.blog-post-header,
+.contact-intro,
+.learning-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+/* Fix content containers */
+.about-container,
+.blog-post-content,
+.contact-container,
+.learning-details,
+.learning-image-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+/* Make sure header and footer are contained */
+.main-header, .site-footer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Fix geometric shapes positioning */
+.geometric-circle, 
+.geometric-circle-2, 
+.geometric-circle-3, 
+.geometric-circle-4, 
+.geometric-circle-5, 
+.geometric-circle-6,
+.geometric-cube,
+.geometric-cube-2 {
+    position: absolute;
+    z-index: 1;
+}
+
+/* Add media query to handle horizontal overflow on small screens */
+@media (max-width: 768px) {
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .about-container,
+    .blog-post-container,
+    .contact-container,
+    .learning-details {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    img, svg, video {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    input, textarea, select, button {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+
+
+
+
+
+
     </style>
 </head>
 <body>

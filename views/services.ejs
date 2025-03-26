@@ -7,188 +7,297 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         /* Services-specific styles */
-        .main-content {
-            padding-top: 100px;
-            color: #643c94;
-        }
-        
-        .services-hero {
-            background-color: #643c94;
-            clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-            padding: 120px 0 200px;
-            color: white;
-        }
+.main-content {
+    padding-top: 100px;
+    color: #643c94;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.services-hero {
+    background-color: #643c94;
+    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+    padding: 120px 0 200px;
+    color: white;
+    width: 100vw;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+}
+
+.services-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.services-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.services-intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: -100px auto 50px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.service-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #f3eb2e;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 30px;
+    color: #643c94;
+}
+
+.service-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #643c94;
+}
+
+.service-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-list li {
+    margin: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #643c94;
+    cursor: default;
+}
+
+.service-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #f3eb2e;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+/* Remove hover effects from list items */
+.service-list li:hover {
+    transform: none;
+}
+
+.service-list li:hover::before {
+    transform: none;
+}
+
+/* Service title link styles */
+.service-title-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.service-title-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #f3eb2e;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.service-title-link:hover {
+    transform: translateY(-2px);
+}
+
+.service-title-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+@media (max-width: 768px) {
+    .services-hero {
+        padding: 100px 0 150px;
+    }
+
+    .services-intro h1 {
+        font-size: 2rem;
+    }
     
-        .services-intro {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
+    .services-intro p {
+        font-size: 1rem;
+    }
+
+    .services-container {
+        margin-top: -50px;
+    }
+
+    .service-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero {
+        padding: 80px 0 120px;
+    }
+
+    .services-intro h1 {
+        font-size: 1.75rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Force body to hide overflow */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Fix hero section */
+.services-hero, .gallery-header {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+}
+
+/* Fix clip-path which might be causing overflow */
+.services-hero, .gallery-header {
+    -webkit-clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+}
+
+/* Fix container divs */
+.services-container, .gallery-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Fix intro text alignment */
+.services-intro, .gallery-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+/* Make sure header and footer are contained */
+.main-header, .site-footer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Fix geometric shapes positioning */
+.geometric-circle, 
+.geometric-circle-2, 
+.geometric-circle-3, 
+.geometric-circle-4, 
+.geometric-circle-5, 
+.geometric-circle-6,
+.geometric-cube,
+.geometric-cube-2 {
+    position: absolute;
+    z-index: 1;
+}
+
+/* Add media query to handle horizontal overflow on small screens */
+@media (max-width: 768px) {
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
     
-        .services-intro h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+    .main-content {
+        overflow-x: hidden;
+        width: 100%;
+    }
     
-        .services-intro p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-    
-        .services-container {
-            max-width: 1200px;
-            margin: -100px auto 50px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-    
-        .service-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 3px solid #f3eb2e;
-            transition: transform 0.3s ease;
-        }
-    
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-    
-        .service-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-    
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    
-        .service-content {
-            padding: 30px;
-            color: #643c94;
-        }
-    
-        .service-content h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #643c94;
-        }
-    
-        .service-content p {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #666;
-        }
-    
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-    
-        .service-list li {
-            margin: 10px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #643c94;
-            cursor: default;
-        }
-    
-        .service-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #f3eb2e;
-            font-size: 1.5em;
-            line-height: 1;
-        }
-    
-        /* Remove hover effects from list items */
-        .service-list li:hover {
-            transform: none;
-        }
-    
-        .service-list li:hover::before {
-            transform: none;
-        }
-        
-        /* Service title link styles */
-        .service-title-link {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .service-title-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #f3eb2e;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: right;
-        }
-        
-        .service-title-link:hover {
-            transform: translateY(-2px);
-        }
-        
-        .service-title-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-    
-        @media (max-width: 768px) {
-            .services-hero {
-                padding: 100px 0 150px;
-            }
-    
-            .services-intro h1 {
-                font-size: 2rem;
-            }
-            
-            .services-intro p {
-                font-size: 1rem;
-            }
-    
-            .services-container {
-                margin-top: -50px;
-            }
-    
-            .service-card {
-                width: 100%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .services-hero {
-                padding: 80px 0 120px;
-            }
-    
-            .services-intro h1 {
-                font-size: 1.75rem;
-            }
-        }
+    .services-hero, .gallery-header {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
     </style>
 </head>
 <body>
