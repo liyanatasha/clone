@@ -7,202 +7,129 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         .main-content {
-            padding-top: 100px;
-            color: #643c94;
-        }
-    
-        .about-section {
-            background-color: #643c94;
-            clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-            padding: 120px 0 200px;
-            color: white;
-        }
-    
-        .about-intro {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-    
-        .about-intro h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-    
-        .about-intro p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-    
-        .about-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            width: 100%;
-            max-width: 1200px;
-            margin: -100px auto 0;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-    
-        .about-box {
-            width: 400px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border: 4px solid #f3eb2e; /* Thick yellow border */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-        }
-    
-        .about-box:hover {
-            transform: translateY(-10px); /* Lift the box on hover */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-        }
-    
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 25px;
-            border: 3px solid #643c94; /* Keep the profile picture border as is */
-        }
-    
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    
-        .about-box h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #643c94;
-        }
-    
-        .about-box h3 {
-            font-size: 1.2rem;
-            color: #4a90e2;
-            margin-bottom: 8px;
-        }
-    
-        .role {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
-    
-        .linkedin-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #643c94;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-    
-        .linkedin-icon {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-    
-        .linkedin-link:hover {
-            opacity: 0.8;
-        }
+    padding-top: 100px;
+    color: #643c94;
+}
 
-        /* New Styles for Gamification Section */
-        .gamification-science {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
+.about-section {
+    background-color: #643c94;
+    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+    padding: 120px 0 200px;
+    color: white;
+}
 
-        .gamification-science h2 {
-            font-size: 2rem;
-            color: #643c94;
-            margin-bottom: 20px;
-        }
+.about-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
 
-        .gamification-science h3 {
-            font-size: 1.5rem;
-            color: #643c94;
-            margin-bottom: 15px;
-        }
+.about-intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
 
-        .gamification-science ul {
-            text-align: left;
-            margin: 0 auto;
-            max-width: 600px;
-        }
+.about-intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
 
-        .gamification-science ul li {
-            margin-bottom: 10px;
-        }
+.about-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: -100px auto 0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
 
-        .references {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #666;
-            text-align: right;
-        }
+.about-box {
+    width: 400px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 4px solid #f3eb2e; /* Thick yellow border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
 
-        .references button {
-            background: none;
-            border: none;
-            color: #643c94;
-            font-size: 0.9rem;
-            cursor: pointer;
-            text-decoration: underline;
-        }
+.about-box:hover {
+    transform: translateY(-10px); /* Lift the box on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
 
-        .references button:hover {
-            opacity: 0.8;
-        }
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 25px;
+    border: 3px solid #643c94; /* Keep the profile picture border as is */
+}
 
-        #reference-content {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #666;
-            text-align: right;
-        }
-    
-        @media (max-width: 768px) {
-            .about-section {
-                padding: 100px 0 150px;
-            }
-    
-            .about-intro h1 {
-                font-size: 2rem;
-            }
-    
-            .about-intro p {
-                font-size: 1rem;
-            }
-    
-            .about-container {
-                margin-top: -50px;
-            }
-    
-            .about-box {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        /* Gamification content*/
-        /* Improved Typography and Content Styling */
+.about-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #643c94;
+}
+
+.about-box h3 {
+    font-size: 1.2rem;
+    color: #4a90e2;
+    margin-bottom: 8px;
+}
+
+.role {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #643c94;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.linkedin-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.linkedin-link:hover {
+    opacity: 0.8;
+}
+
+/* Fixed Gamification Science Section */
 .gamification-science {
     max-width: 800px;
     margin: 80px auto;
-    padding: 0 40px;
+    padding: 40px;
     line-height: 1.8;
+    background-color: rgba(100, 60, 148, 0.08);
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(100, 60, 148, 0.15);
+    border: 3px solid #643c94;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .gamification-science h2 {
@@ -211,6 +138,9 @@
     margin-bottom: 30px;
     line-height: 1.3;
     text-align: left;
+    padding-bottom: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .gamification-science h3 {
@@ -218,6 +148,8 @@
     color: #643c94;
     margin: 40px 0 25px;
     text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .gamification-science p {
@@ -225,7 +157,9 @@
     color: #444;
     margin-bottom: 25px;
     text-align: left;
-    max-width: 70ch;
+    line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .gamification-science ul {
@@ -233,6 +167,8 @@
     margin: 30px 0 40px;
     padding-left: 25px;
     list-style-type: none;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .gamification-science ul li {
@@ -241,6 +177,9 @@
     padding-left: 25px;
     color: #444;
     font-size: 1.1rem;
+    line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .gamification-science ul li::before {
@@ -259,24 +198,34 @@
     display: block;
     margin-bottom: 8px;
     font-size: 1.15rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .gamification-science a {
     color: #643c94;
     text-decoration: none;
     border-bottom: 2px solid #f3eb2e;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    padding-bottom: 2px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .gamification-science a:hover {
+    background-color: rgba(243, 235, 46, 0.15);
     border-color: #643c94;
+    padding: 0 3px;
 }
 
 /* References Section Styling */
 .references {
     margin-top: 50px;
     padding-top: 30px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(100, 60, 148, 0.2);
+    position: relative;
 }
 
 .references button {
@@ -287,25 +236,34 @@
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .references button:hover {
     background-color: #52307a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 #reference-content {
     margin-top: 20px;
     padding: 25px;
-    background-color: #f8f9fa;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 8px;
+    border: 1px solid rgba(100, 60, 148, 0.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #reference-content ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #reference-content ul li {
@@ -314,6 +272,8 @@
     color: #666;
     line-height: 1.6;
     padding-left: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 #reference-content ul li::before {
@@ -324,11 +284,31 @@
     color: #643c94;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .about-section {
+        padding: 100px 0 150px;
+    }
+
+    .about-intro h1 {
+        font-size: 2rem;
+    }
+
+    .about-intro p {
+        font-size: 1rem;
+    }
+
+    .about-container {
+        margin-top: -50px;
+    }
+
+    .about-box {
+        width: 100%;
+        max-width: 400px;
+    }
+    
     .gamification-science {
         margin: 60px auto;
-        padding: 0 25px;
+        padding: 30px 25px;
     }
 
     .gamification-science h2 {
@@ -358,7 +338,7 @@
 @media (max-width: 480px) {
     .gamification-science {
         margin: 40px auto;
-        padding: 0 20px;
+        padding: 20px;
     }
 
     .gamification-science h2 {
@@ -423,7 +403,7 @@
                 </div>
                 <h2>JASON FUNG</h2>
                 <h3>People Development & Engagement</h3>
-                <p class="role">Chief Experience Officer</p>
+                <p class="role">Chief Executive Officer</p>
                 <a href="https://linkedin.com/in/jasonfjh" target="_blank" class="linkedin-link">
                     <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -439,7 +419,7 @@
                 </div>
                 <h2>MICHELLE WONG</h2>
                 <h3>People Development & Engagement</h3>
-                <p class="role">Chief Creative Officer</p>
+                <p class="role">Chief Operating Officer</p>
                 <a href="https://linkedin.com/in/michelle-wtq" target="_blank" class="linkedin-link">
                     <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>

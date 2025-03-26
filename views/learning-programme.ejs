@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Experience Enablers</title>
+    <title>Learning Programme - Experience Enablers</title>
     <link rel="stylesheet" href="/style.css">
     <style>
-        /* Services-specific styles */
+        /* Learning Programme specific styles */
         .main-content {
             padding-top: 100px;
             color: #643c94;
         }
         
-        .services-hero {
+        .learning-hero {
             background-color: #643c94;
             clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
             padding: 120px 0 200px;
             color: white;
         }
     
-        .services-intro {
+        .learning-intro {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
@@ -28,165 +28,122 @@
             z-index: 2;
         }
     
-        .services-intro h1 {
+        .learning-intro h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
     
-        .services-intro p {
+        .learning-intro p {
             font-size: 1.2rem;
             line-height: 1.6;
         }
-    
-        .services-container {
-            max-width: 1200px;
-            margin: -100px auto 50px;
-            padding: 0 20px;
+        
+        .learning-image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -100px;
             position: relative;
             z-index: 2;
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
+            margin-bottom: 50px;
         }
-    
-        .service-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            background: white;
-            border-radius: 15px;
+        
+        .learning-image {
+            width: 70%;
+            max-width: 800px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border: 3px solid #f3eb2e;
-            transition: transform 0.3s ease;
+            height: 400px; /* Doubled height */
         }
-    
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-    
-        .service-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-    
-        .service-image img {
+        
+        .learning-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
-    
-        .service-content {
+        
+        .learning-details {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .learning-item {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 10px;
             padding: 30px;
-            color: #643c94;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #f3eb2e;
         }
-    
-        .service-content h2 {
-            font-size: 1.8rem;
+        
+        .learning-item h2 {
+            color: #643c94;
             margin-bottom: 15px;
-            color: #643c94;
+            font-size: 1.8rem;
         }
-    
-        .service-content p {
-            margin-bottom: 20px;
+        
+        .learning-item p {
+            color: #444;
             line-height: 1.6;
-            color: #666;
-        }
-    
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-    
-        .service-list li {
-            margin: 10px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #643c94;
-            cursor: default;
-        }
-    
-        .service-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #f3eb2e;
-            font-size: 1.5em;
-            line-height: 1;
-        }
-    
-        /* Remove hover effects from list items */
-        .service-list li:hover {
-            transform: none;
-        }
-    
-        .service-list li:hover::before {
-            transform: none;
+            margin-bottom: 0;
         }
         
-        /* Service title link styles */
-        .service-title-link {
-            text-decoration: none;
-            color: inherit;
+        /* Return to services button */
+        .return-button {
             display: inline-block;
-            position: relative;
-            transition: transform 0.3s ease;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background-color: #643c94;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
         }
         
-        .service-title-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #f3eb2e;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: right;
+        .return-button:hover {
+            background-color: #52307a;
         }
         
-        .service-title-link:hover {
-            transform: translateY(-2px);
+        .button-container {
+            text-align: center;
+            margin-bottom: 50px;
         }
         
-        .service-title-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-    
         @media (max-width: 768px) {
-            .services-hero {
+            .learning-hero {
                 padding: 100px 0 150px;
             }
-    
-            .services-intro h1 {
+            
+            .learning-intro h1 {
                 font-size: 2rem;
             }
             
-            .services-intro p {
+            .learning-intro p {
                 font-size: 1rem;
             }
-    
-            .services-container {
-                margin-top: -50px;
+            
+            .learning-image {
+                width: 80%;
+                height: 300px;
             }
-    
-            .service-card {
-                width: 100%;
+            
+            .learning-item {
+                padding: 20px;
+            }
+            
+            .learning-item h2 {
+                font-size: 1.5rem;
             }
         }
-        
+
         @media (max-width: 480px) {
-            .services-hero {
-                padding: 80px 0 120px;
-            }
-    
-            .services-intro h1 {
-                font-size: 1.75rem;
+            .learning-image {
+                width: 90%;
+                height: 240px;
             }
         }
     </style>
@@ -196,7 +153,7 @@
     <header class="main-header">
         <div class="header-content">
             <a href="/" class="logo">
-                <img src="/images/nav_logo.png" alt="TeamBuild Co. Logo" class="nav-logo">
+                <img src="/images/nav_logo.png" alt="Experience Enablers Logo" class="nav-logo">
             </a>
             <nav>
                 <ul>
@@ -212,72 +169,72 @@
             </button>
         </div>
     </header>
+    
     <div class="main-content">
-    <!-- Hero Section -->
-    <section class="services-hero">
-        <div class="geometric-circle"></div>
-        <div class="geometric-circle-2"></div>
-        <div class="geometric-circle-3"></div>
-        <div class="geometric-circle-4"></div>
-        <div class="geometric-circle-5"></div>
-        <div class="geometric-circle-6"></div>
-        <div class="geometric-cube"></div>
-        <div class="geometric-cube-2"></div>
-        <div class="services-intro">
-            <h1>Our Services</h1>
-            <p>Discover our comprehensive range of corporate training, leadership development and team-building programs designed to boost productivity, teamwork and employee engagement in your organization.</p>
-        </div>
-    </section>
-
-    <!-- Services Cards -->
-    <div class="services-container">
-        <!-- Learning Programme Card -->
-        <div class="service-card">
-            <div class="service-image">
+        <!-- Hero Section -->
+        <section class="learning-hero">
+            <div class="geometric-circle"></div>
+            <div class="geometric-circle-2"></div>
+            <div class="geometric-circle-3"></div>
+            <div class="geometric-circle-4"></div>
+            <div class="geometric-circle-5"></div>
+            <div class="geometric-circle-6"></div>
+            <div class="geometric-cube"></div>
+            <div class="geometric-cube-2"></div>
+            <div class="yellow-line"></div>
+            <div class="learning-intro">
+                <h1>Learning Programme</h1>
+                <p>Unlock the potential of your young leaders through our transformative training sessions focused on soft skill enhancement and professional development.</p>
+            </div>
+        </section>
+        
+        <!-- Featured Image -->
+        <div class="learning-image-container">
+            <div class="learning-image">
                 <img src="/images/learning-bg.jpg" alt="Learning Programme">
             </div>
-            <div class="service-content">
-                <a href="/learning-programme" class="service-title-link">
-                    <h2>Learning Programme</h2>
-                </a>
-                <p>Unlock the potential of your young leaders through our transformative training sessions focused on soft skill enhancement.</p>
-                <ul class="service-list">
-                    <li>Leadership Development</li>
-                    <li>Effective Communication</li>
-                    <li>Teamwork and Synergy</li>
-                    <li>Design Thinking</li>
-                    <li>Growth and Open Mindset</li>
-                </ul>
+        </div>
+        
+        <!-- Learning Programme Details -->
+        <div class="learning-details">
+            <div class="learning-item">
+                <h2>Leadership Development</h2>
+                <p>Enhance your leadership skills with expert-led corporate training. This program strengthens decision-making, delegation and strategic thinking through interactive leadership workshops and real-world business scenarios. Learn how to lead with confidence and drive team success.</p>
+            </div>
+            
+            <div class="learning-item">
+                <h2>Effective Communication</h2>
+                <p>Master the art of workplace communication with our professional development program. Improve verbal and non-verbal communication, active listening and presentation skills. Learn techniques to enhance collaboration, boost team engagement and communicate effectively in business settings.</p>
+            </div>
+            
+            <div class="learning-item">
+                <h2>Teamwork and Synergy</h2>
+                <p>Develop strong teamwork skills through interactive team-building exercises. Understand group dynamics, improve collaboration and maximize productivity. Our program helps teams build synergy, solve problems together and work toward common business goals.</p>
+            </div>
+            
+            <div class="learning-item">
+                <h2>Design Thinking</h2>
+                <p>Boost innovation and problem-solving with Design Thinking training. Learn a structured approach to creative problem-solving, from empathizing with users to prototyping and testing solutions. Ideal for teams looking to drive innovation and business growth.</p>
+            </div>
+            
+            <div class="learning-item">
+                <h2>Growth and Open Mindset</h2>
+                <p>Foster a growth mindset and embrace challenges with confidence. This program teaches adaptability, resilience and lifelong learning strategies. Learn how to stay motivated, improve productivity and turn obstacles into career growth opportunities.</p>
             </div>
         </div>
-
-        <!-- Team Building Card -->
-        <div class="service-card">
-            <div class="service-image">
-                <img src="/images/teambuilding-bg.jpg" alt="Team Building">
-            </div>
-            <div class="service-content">
-                <a href="/team-building" class="service-title-link">
-                    <h2>Team Building</h2>
-                </a>
-                <p>Foster stronger connections and collaboration among your team members to achieve collective goals and improve performance.</p>
-                <ul class="service-list">
-                    <li>Team Bonding and Gratitude</li>
-                    <li>Team Culture Realignment</li>
-                    <li>Teamwork and Collaboration</li>
-                    <li>Trust Building</li>
-                    <li>Morale Boosting</li>
-                </ul>
-            </div>
+        
+        <!-- Return to Services Button -->
+        <div class="button-container">
+            <a href="/services" class="return-button">Back to Services</a>
         </div>
     </div>
-    </div>
+    
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <img src="/images/nav_logo.png" alt="TeamBuild Co. Logo" class="brand-logo">
+                    <img src="/images/nav_logo.png" alt="Experience Enablers Logo" class="brand-logo">
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/company/experience-enablers" target="_blank" class="social-icon">

@@ -10,6 +10,11 @@ body {
     min-height: 100vh;
 }
 
+html, body {
+
+    width: 100%;
+  }
+
 /* Header Styles */
 .main-header {
     background-color: #643c94;
