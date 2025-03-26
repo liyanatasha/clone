@@ -595,24 +595,39 @@ body {
 
 
 
-/* Prevent horizontal overflow */
+/* Hero and other sections to overflow to the right */
+.hero-content, .blog-hero, .teambuilding-hero, .learning-hero, .contact-section {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: visible; /* Allow horizontal overflow */
+}
+
+/* Footer to overflow to the right */
+.site-footer {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    overflow-x: visible;
+}
+
+/* Prevent horizontal scroll on body */
 body {
-    margin: 0;
-    padding: 0;
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Ensure the main content doesn't push out */
-.main-content {
-    width: 100%;
-    box-sizing: border-box; /* Ensure that padding doesn't affect width */
-    padding-left: 0;
-    padding-right: 0;
+/* Ensure no width constraints */
+.main-content, .main-header {
+    width: 100vw;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-/* Apply padding within specific sections where needed */
-.teambuilding-image, .learning-image, .gallery-entry {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box; /* Prevent overflow by ensuring padding is included in width */
+/* Slanted background section */
+.slanted-background {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
 }
