@@ -10,37 +10,13 @@ body {
     min-height: 100vh;
 }
 
-/* Fix for the right-side white space */
-body {
-    overflow-x: hidden;
-    width: 100%;
-  }
+/* Fix for right-side white space */
   
-  /* Fix for geometric shapes in hero sections */
-  .geometric-circle,
-  .geometric-circle-2,
-  .geometric-circle-3,
-  .geometric-circle-4, 
-  .geometric-circle-5,
-  .geometric-circle-6,
-  .geometric-cube,
-  .geometric-cube-2 {
-    position: absolute;
-    z-index: -1;
-    /* Make sure these stay within their containers */
-    overflow: visible;
+  /* This is critical for mobile layouts */
+  * {
+    max-width: 100vw;
+    box-sizing: border-box;
   }
-  
-  /* Make sure parent containers properly position geometric elements */
-  .about-section,
-  .contact-section,
-  .blog-hero,
-  .gallery-header,
-  .teambuilding-hero {
-    position: relative;
-    overflow: visible;
-  }
-
 
 /* Header Styles */
 .main-header {
