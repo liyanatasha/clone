@@ -15,6 +15,26 @@ html, body {
     width: 100%;
   }
 
+  .main-header, 
+  .about-section, 
+  .contact-section,
+  .blog-hero, 
+  .gallery-header,
+  .about-container, 
+  .contact-container, 
+  .blog-container, 
+  .gallery-container,
+  .site-footer,
+  .teambuilding-hero,
+  .teambuilding-intro,
+  .teambuilding-image-container,
+  .teambuilding-details,
+  .blog-post-container {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
 /* Header Styles */
 .main-header {
     background-color: #643c94;
