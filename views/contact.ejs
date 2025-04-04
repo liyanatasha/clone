@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Experience Enablers</title>
+    <meta name="description" content="Get in touch with Experience Enablers for any inquiries about our services. We are happy to assist you.">
+    <meta name="keywords" content="contact, customer support, corporate training, team building, leadership training">
+    <meta property="og:title" content="Contact Us - Experience Enablers">
+    <meta property="og:description" content="Contact Experience Enablers for all your inquiries. Our team is here to assist with your leadership training and team-building needs.">
+    <meta property="og:image" content="/images/logo_footer.png">
+    <meta property="og:url" content="https://www.experienceenablers.com/contact">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="/style.css">
     <style>
         .main-content {
@@ -82,10 +89,52 @@
     text-decoration: none;
     font-size: 1rem;
     margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .whatsapp-btn:hover {
     background: #128c7e;
+}
+
+.email-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.email-btn {
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.jason-btn {
+    background: #643c94;
+}
+
+.jason-btn:hover {
+    background: #4a2d6f;
+}
+
+.michelle-btn {
+    background: #643c94;
+}
+
+.michelle-btn:hover {
+    background: #4a2d6f;
 }
 
 .contact-form {
@@ -214,7 +263,7 @@ textarea {
     z-index: 999;
 }
 
-/* Mobile responsiveness */
+    /* Mobile responsiveness */
 @media (max-width: 768px) {
     .contact-section {
         padding: 100px 0 150px;
@@ -425,20 +474,30 @@ html, body {
             <!-- Left Side: Contact Info -->
             <div class="contact-info">
                 <h2>Get in Touch</h2>
-                <p>For quick responses, message us on WhatsApp. We’re always happy to assist!</p>
+                <p>For quick responses, message us on WhatsApp. We're always happy to assist!</p>
                 
                 <!-- WhatsApp Button -->
-                <a href="https://wa.me/60149228410" class="whatsapp-btn" target="_blank">
+                <a href="https://wa.me/60198205889" class="whatsapp-btn" target="_blank">
                     💬 Message Us on WhatsApp
                 </a>
 
-               
+                <p>For more detailed inquiries or to connect with our team directly, you can email us:</p>
+
+                <!-- Email Buttons -->
+                <div class="email-buttons" style="text-align: center;">
+                    <a href="mailto:jason@experienceenablers.com" class="email-btn jason-btn" target="_blank">
+                        ✉️ Jason
+                    </a>
+                    <a href="mailto:michelle@experienceenablers.com" class="email-btn michelle-btn" target="_blank">
+                        ✉️ Michelle
+                    </a>
+                </div>
 
                 <!-- Response Time Note -->
                 <p>⏳ We typically respond within <strong>24–48 hours</strong>. Thank you for your patience!</p>
 
                 <!-- Privacy Assurance Note -->
-                <p>🔒 Your information is safe with us. We don’t share your details with third parties.</p>
+                <p>🔒 Your information is safe with us. We don't share your details with third parties.</p>
             </div>
 
             <!-- Right Side: Contact Form -->

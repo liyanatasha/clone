@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= post.title %> - Experience Enablers</title>
+    <meta name="description" content="<%= post.excerpt %>">
+    <meta name="keywords" content="<%= post.tags.join(', ') %>">
+    <meta property="og:title" content="<%= post.title %>">
+    <meta property="og:description" content="<%= post.excerpt %>">
+    <meta property="og:image" content="/uploads/<%= post.image %>">
+    <meta property="og:url" content="https://www.experienceenablers.com/blog/<%= post.slug %>">
+    <meta property="og:type" content="article">
     <link rel="stylesheet" href="/style.css">
     <style>
         .blog-post-container {
