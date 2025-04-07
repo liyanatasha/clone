@@ -526,11 +526,11 @@ html, body {
     <div class="admin-container">
         <div class="admin-header">
             <h1 class="admin-title"><i class="fas fa-cog"></i> Admin Dashboard</h1>
-            <div class="admin-header-links">
-                <a href="/gallery" class="view-public-link">
+            <div class="admin-header-links" style="display: flex; gap: 15px;">
+                <a href="/gallery" class="tab-button" style="text-decoration: none;">
                     <i class="fas fa-image"></i> View Gallery
                 </a>
-                <a href="/blog" class="view-public-link">
+                <a href="/blog" class="tab-button" style="text-decoration: none;">
                     <i class="fas fa-book"></i> View Blog
                 </a>
             </div>
@@ -560,7 +560,7 @@ html, body {
                         <label class="form-label">
                             <i class="fas fa-align-left"></i> Description
                         </label>
-                        <textarea name="description" class="form-textarea" required></textarea>
+                        <textarea name="description" class="form-textarea"></textarea>
                     </div>
 
                     <div class="form-row">
@@ -575,7 +575,7 @@ html, body {
                             <span class="file-selected">No files selected</span>
                         </div>
                         <p class="tag-hint" style="margin-top: 20px; color: #643c94; padding: 10px; background: rgba(100, 60, 148, 0.05); border-radius: 5px;">
-                            <i class="fas fa-info-circle"></i> For faster page loading and better performance, please optimize images before uploading. You can use tools like <a href="https://www.iloveimg.com/compress-image" target="_blank" style="color: #643c94; text-decoration: underline;">iLoveIMG</a>, <a href="https://imagecompressor.com/" target="_blank" style="color: #643c94; text-decoration: underline;">Optimizilla</a>, or any other image compression tool of your preference.
+                            <i class="fas fa-info-circle"></i> Accepted file formats: JPG/JPEG, PNG, and GIF images only. For faster page loading and better performance, please optimize images before uploading. You can use tools like <a href="https://www.iloveimg.com/compress-image" target="_blank" style="color: #643c94; text-decoration: underline;">iLoveIMG</a>, <a href="https://imagecompressor.com/" target="_blank" style="color: #643c94; text-decoration: underline;">Optimizilla</a>, or any other image compression tool of your preference.
                         </p>
                     </div>
 
@@ -586,7 +586,7 @@ html, body {
             </form>
 
             <div class="existing-content">
-                <h2><i class="fas fa-list"></i> Existing Galleries</h2>
+                <h2 style="color:#643c94"><i class="fas fa-list"></i> Existing Galleries</h2>
                 <% galleries.forEach(gallery => { %>
                     <div class="admin-card">
                         <div class="admin-card-header">
@@ -650,6 +650,9 @@ html, body {
                     <i class="fas fa-image"></i> Insert Image
                 </button>
             </div>
+            <p class="tag-hint" style="margin-top: 20px; color: #643c94; padding: 10px; background: rgba(100, 60, 148, 0.05); border-radius: 5px;">
+                <i class="fas fa-info-circle"></i> Accepted file formats: JPG/JPEG, PNG, and GIF images only. For faster page loading and better performance, please optimize images before uploading. You can use tools like <a href="https://www.iloveimg.com/compress-image" target="_blank" style="color: #643c94; text-decoration: underline;">iLoveIMG</a>, <a href="https://imagecompressor.com/" target="_blank" style="color: #643c94; text-decoration: underline;">Optimizilla</a>, or any other image compression tool of your preference.
+            </p>
         </div>
 
         <div class="form-row">
@@ -678,6 +681,9 @@ html, body {
                 </label>
                 <span class="file-selected">No file selected</span>
             </div>
+            <p class="tag-hint" style="margin-top: 20px; color: #643c94; padding: 10px; background: rgba(100, 60, 148, 0.05); border-radius: 5px;">
+                <i class="fas fa-info-circle"></i> Accepted file formats: JPG/JPEG, PNG, and GIF images only. For faster page loading and better performance, please optimize images before uploading. You can use tools like <a href="https://www.iloveimg.com/compress-image" target="_blank" style="color: #643c94; text-decoration: underline;">iLoveIMG</a>, <a href="https://imagecompressor.com/" target="_blank" style="color: #643c94; text-decoration: underline;">Optimizilla</a>, or any other image compression tool of your preference.
+            </p>
         </div>
 
         <button type="submit" class="admin-submit">
@@ -687,7 +693,7 @@ html, body {
 </form>
 
             <div class="existing-content">
-                <h2><i class="fas fa-list"></i> Existing Blog Posts</h2>
+                <h2 style="color:#643c94"><i class="fas fa-list"></i> Existing Blog Posts</h2>
                 <% blogPosts.forEach(post => { %>
                     <div class="admin-card">
                         <div class="admin-card-header">
@@ -752,440 +758,514 @@ html, body {
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        // Function to make Quill editor resizable by adding a drag handle
-function makeEditorResizable(editorContainerId) {
-  const editorContainer = document.getElementById(editorContainerId);
-  if (!editorContainer) return;
-  
-  // Set initial styles for the container
-  editorContainer.style.position = 'relative';
-  editorContainer.style.resize = 'vertical';
-  editorContainer.style.overflow = 'hidden';
-  editorContainer.style.minHeight = '400px';
-  editorContainer.style.transition = 'none'; // Remove transition to make resizing smooth
-  
-  // Create and add a resize handle at the bottom
-  const resizeHandle = document.createElement('div');
-  resizeHandle.className = 'editor-resize-handle';
-  resizeHandle.innerHTML = '<i class="fas fa-grip-lines"></i>';
-  resizeHandle.style.position = 'absolute';
-  resizeHandle.style.bottom = '0';
-  resizeHandle.style.width = '100%';
-  resizeHandle.style.height = '15px';
-  resizeHandle.style.background = '#f0f0f0';
-  resizeHandle.style.borderTop = '1px solid #ddd';
-  resizeHandle.style.cursor = 'ns-resize';
-  resizeHandle.style.textAlign = 'center';
-  resizeHandle.style.color = '#643c94';
-  resizeHandle.style.display = 'flex';
-  resizeHandle.style.alignItems = 'center';
-  resizeHandle.style.justifyContent = 'center';
-  
-  // Add hover effect for better UX
-  resizeHandle.addEventListener('mouseover', () => {
-    resizeHandle.style.background = '#e0e0e0';
-  });
-  
-  resizeHandle.addEventListener('mouseout', () => {
-    resizeHandle.style.background = '#f0f0f0';
-  });
-  
-  // Add the handle to the editor container
-  editorContainer.appendChild(resizeHandle);
-  
-  // Setup resize functionality
-  let startY, startHeight;
-  
-  // Mousedown handler
-  const handleMouseDown = (e) => {
-    startY = e.clientY;
-    startHeight = parseInt(document.defaultView.getComputedStyle(editorContainer).height, 10);
-    
-    // Add event listeners for resize tracking
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-    
-    // Prevent default to avoid text selection during resize
-    e.preventDefault();
-  };
-  
-  // Mousemove handler
-  const handleMouseMove = (e) => {
-    const newHeight = startHeight + e.clientY - startY;
-    
-    // Set minimum and maximum height constraints
-    if (newHeight > 200 && newHeight < 1000) {
-      editorContainer.style.height = `${newHeight}px`;
-      
-      // Also adjust the height of the Quill editor inside
-      const qlEditor = editorContainer.querySelector('.ql-editor');
-      if (qlEditor) {
-        qlEditor.style.height = `${newHeight - 42}px`; // Subtract toolbar height
-      }
-    }
-  };
-  
-  // Mouseup handler
-  const handleMouseUp = () => {
-    document.removeEventListener('mousemove', handleMouseMove);
-    document.removeEventListener('mouseup', handleMouseUp);
-  };
-  
-  // Attach event listener to the resize handle
-  resizeHandle.addEventListener('mousedown', handleMouseDown);
-  
-  // Return a function to clean up event listeners if needed
-  return () => {
-    resizeHandle.removeEventListener('mousedown', handleMouseDown);
-  };
-}
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu functionality
-            const menuToggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('.main-header nav ul');
-            
-            menuToggle.addEventListener('click', function() {
-                this.classList.toggle('active');
-                nav.classList.toggle('active');
-            });
-
-             // Initialize resizable editor for new blog posts
-  if (document.getElementById('new-editor-container')) {
-    makeEditorResizable('new-editor-container');
-  }
-  
-  // Check URL parameters for active tab
-  const urlParams = new URLSearchParams(window.location.search);
-    const tabParam = urlParams.get('tab');
-    
-    // Set active tab based on URL parameter if it exists
-    if (tabParam === 'blog') {
-        // Remove active class from all buttons and content
-        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+<script>
+    // Function to make Quill editor resizable by adding a drag handle
+    function makeEditorResizable(editorContainerId) {
+        const editorContainer = document.getElementById(editorContainerId);
+        if (!editorContainer) return;
         
-        // Activate blog tab
-        document.querySelector('.tab-button[data-tab="blog"]').classList.add('active');
-        document.getElementById('blog-tab').classList.add('active');
-    }
-    
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-                    menuToggle.classList.remove('active');
-                    nav.classList.remove('active');
+        // Set initial styles for the container
+        editorContainer.style.position = 'relative';
+        editorContainer.style.resize = 'vertical';
+        editorContainer.style.overflow = 'hidden';
+        editorContainer.style.minHeight = '400px';
+        editorContainer.style.transition = 'none'; // Remove transition to make resizing smooth
+        
+        // Create and add a resize handle at the bottom
+        const resizeHandle = document.createElement('div');
+        resizeHandle.className = 'editor-resize-handle';
+        resizeHandle.innerHTML = '<i class="fas fa-grip-lines"></i>';
+        resizeHandle.style.position = 'absolute';
+        resizeHandle.style.bottom = '0';
+        resizeHandle.style.width = '100%';
+        resizeHandle.style.height = '15px';
+        resizeHandle.style.background = '#f0f0f0';
+        resizeHandle.style.borderTop = '1px solid #ddd';
+        resizeHandle.style.cursor = 'ns-resize';
+        resizeHandle.style.textAlign = 'center';
+        resizeHandle.style.color = '#643c94';
+        resizeHandle.style.display = 'flex';
+        resizeHandle.style.alignItems = 'center';
+        resizeHandle.style.justifyContent = 'center';
+        
+        // Add hover effect for better UX
+        resizeHandle.addEventListener('mouseover', () => {
+            resizeHandle.style.background = '#e0e0e0';
+        });
+        
+        resizeHandle.addEventListener('mouseout', () => {
+            resizeHandle.style.background = '#f0f0f0';
+        });
+        
+        // Add the handle to the editor container
+        editorContainer.appendChild(resizeHandle);
+        
+        // Setup resize functionality
+        let startY, startHeight;
+        
+        // Mousedown handler
+        const handleMouseDown = (e) => {
+            startY = e.clientY;
+            startHeight = parseInt(document.defaultView.getComputedStyle(editorContainer).height, 10);
+            
+            // Add event listeners for resize tracking
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            
+            // Prevent default to avoid text selection during resize
+            e.preventDefault();
+        };
+        
+        // Mousemove handler
+        const handleMouseMove = (e) => {
+            const newHeight = startHeight + e.clientY - startY;
+            
+            // Set minimum and maximum height constraints
+            if (newHeight > 200 && newHeight < 1000) {
+                editorContainer.style.height = `${newHeight}px`;
+                
+                // Also adjust the height of the Quill editor inside
+                const qlEditor = editorContainer.querySelector('.ql-editor');
+                if (qlEditor) {
+                    qlEditor.style.height = `${newHeight - 42}px`; // Subtract toolbar height
                 }
-            });
-    
-            // Close menu when clicking a link
-            document.querySelectorAll('.main-header nav ul li a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    nav.classList.remove('active');
-                });
-            });
-    
-            // Tab switching functionality
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons and content
-                    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    
-                    // Add active class to clicked button and corresponding content
-                    button.classList.add('active');
-                    document.getElementById(`${button.dataset.tab}-tab`).classList.add('active');
-                });
-            });
-    
-            // File input handling for gallery
-            document.getElementById('galleryFileInput').addEventListener('change', function(e) {
-                const files = e.target.files;
-                const label = e.target.parentElement.querySelector('.file-selected');
-                label.textContent = files.length > 0 
-                    ? `${files.length} file${files.length !== 1 ? 's' : ''} selected` 
-                    : 'No files selected';
-            });
-    
-            // File input handling for blog
-            document.getElementById('blogFileInput').addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                const label = e.target.parentElement.querySelector('.file-selected');
-                label.textContent = file ? file.name : 'No file selected';
-            });
-    
-            // Initialize Quill editor for new blog posts
-            if (document.getElementById('new-editor-container')) {
-                const quill = new Quill('#new-editor-container', {
-                    modules: {
-                        toolbar: [
-                            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                            ['bold', 'italic', 'underline', 'strike'],
-                            [{ 'color': [] }, { 'background': [] }],
-                            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                            [{ 'align': [] }],
-                            ['link', 'blockquote'],
-                            ['clean']
-                        ]
-                    },
-                    theme: 'snow'
-                });
+            }
+        };
+        
+        // Mouseup handler
+        const handleMouseUp = () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+        
+        // Attach event listener to the resize handle
+        resizeHandle.addEventListener('mousedown', handleMouseDown);
+        
+        // Return a function to clean up event listeners if needed
+        return () => {
+            resizeHandle.removeEventListener('mousedown', handleMouseDown);
+        };
+    }
 
-                setupImageResizingInQuill(quill);
-                
-                // Handle form submission - update the hidden field with Quill's content
-                document.getElementById('newBlogForm').addEventListener('submit', function() {
-                    document.getElementById('new-content-field').value = quill.root.innerHTML;
-                });
-                
-                // Image Upload Button functionality
-                document.getElementById('new-image-button').addEventListener('click', function() {
-                    document.getElementById('new-inline-image-upload').click();
-                });
-                
-                // Handle image upload to insert into Quill
-                document.getElementById('new-inline-image-upload').addEventListener('change', function() {
-                    const file = this.files[0];
-                    if (file) {
-                        const formData = new FormData();
-                        formData.append('file', file);
-                        
-                        fetch('/admin/upload-inline-image', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.location) {
-                                // Get current cursor position or selection
-                                const range = quill.getSelection(true);
-                                
-                                // Insert image at current cursor position
-                                quill.insertEmbed(range.index, 'image', data.location);
-                                // Move cursor to right after the inserted image
-                                quill.setSelection(range.index + 1);
-                            } else {
-                                alert('Image upload failed');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error uploading image:', error);
-                            alert('Image upload failed');
-                        });
-                        
-                        // Reset file input
-                        this.value = '';
-                    }
-                });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Variables to track form changes
+        let galleryFormChanged = false;
+        let blogFormChanged = false;
+        
+        // Get the forms
+        const galleryForm = document.querySelector('#gallery-tab form');
+        const blogForm = document.getElementById('newBlogForm');
+        
+        // Mobile menu functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.main-header nav ul');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Initialize resizable editor for new blog posts
+        if (document.getElementById('new-editor-container')) {
+            makeEditorResizable('new-editor-container');
+        }
+      
+        // Check URL parameters for active tab
+        const urlParams = new URLSearchParams(window.location.search);
+        const tabParam = urlParams.get('tab');
+        
+        // Set active tab based on URL parameter if it exists
+        if (tabParam === 'blog') {
+            // Remove active class from all buttons and content
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            // Activate blog tab
+            document.querySelector('.tab-button[data-tab="blog"]').classList.add('active');
+            document.getElementById('blog-tab').classList.add('active');
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
             }
         });
 
-        // Add delete confirmation to all delete forms
-document.querySelectorAll('.delete-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Determine if it's a gallery or blog post
-        const isGallery = form.action.includes('delete-gallery');
-        const itemType = isGallery ? 'gallery' : 'blog post';
-        
-        // Find the title of the item being deleted
-        const card = form.closest('.admin-card');
-        const title = card.querySelector('.admin-card-title').textContent;
-        
-        // Create and show the confirmation dialog
-        if (confirm(`Warning: Are you sure you want to delete this ${itemType}?\n\n"${title}"\n\nThis action cannot be undone.`)) {
-            // If confirmed, submit the form
-            form.submit();
-        }
-    });
-});
+        // Close menu when clicking a link
+        document.querySelectorAll('.main-header nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
 
-function setupImageResizingInQuill(quill) {
-  // Container to track the currently selected image
-  let selectedImage = null;
-  
-  // Create resize handles and overlay for the selected image
-  const overlay = document.createElement('div');
-  overlay.classList.add('image-resize-overlay');
-  overlay.style.display = 'none';
-  overlay.style.position = 'absolute';
-  overlay.style.border = '2px dashed #643c94';
-  overlay.style.pointerEvents = 'none';
-  
-  const resizeHandle = document.createElement('div');
-  resizeHandle.classList.add('image-resize-handle');
-  resizeHandle.style.width = '10px';
-  resizeHandle.style.height = '10px';
-  resizeHandle.style.position = 'absolute';
-  resizeHandle.style.bottom = '-5px';
-  resizeHandle.style.right = '-5px';
-  resizeHandle.style.background = '#643c94';
-  resizeHandle.style.cursor = 'nwse-resize';
-  resizeHandle.style.pointerEvents = 'all';
-  
-  // Create size control with width input
-  const sizeControl = document.createElement('div');
-  sizeControl.classList.add('image-size-control');
-  sizeControl.style.position = 'absolute';
-  sizeControl.style.top = '-30px';
-  sizeControl.style.left = '0';
-  sizeControl.style.background = 'rgba(100, 60, 148, 0.8)';
-  sizeControl.style.color = 'white';
-  sizeControl.style.padding = '4px 8px';
-  sizeControl.style.borderRadius = '3px';
-  sizeControl.style.pointerEvents = 'all';
-  sizeControl.style.display = 'flex';
-  sizeControl.style.alignItems = 'center';
-  sizeControl.style.gap = '8px';
-  
-  // Add width input
-  const widthInput = document.createElement('input');
-  widthInput.type = 'number';
-  widthInput.min = '50';
-  widthInput.max = '1000';
-  widthInput.placeholder = 'Width';
-  widthInput.style.width = '70px';
-  widthInput.style.background = 'white';
-  widthInput.style.color = '#333';
-  widthInput.style.border = 'none';
-  widthInput.style.borderRadius = '3px';
-  widthInput.style.padding = '3px';
-  
-  // Add small label
-  const widthLabel = document.createElement('span');
-  widthLabel.textContent = 'Width (px):';
-  widthLabel.style.fontSize = '12px';
-  
-  // Add elements to the DOM
-  sizeControl.appendChild(widthLabel);
-  sizeControl.appendChild(widthInput);
-  
-  overlay.appendChild(resizeHandle);
-  overlay.appendChild(sizeControl);
-  
-  // Add the overlay to the Quill container
-  const quillContainer = quill.container.parentNode;
-  quillContainer.style.position = 'relative';
-  quillContainer.appendChild(overlay);
-  
-  // Update overlay position based on selected image
-  function updateOverlayPosition() {
-    if (!selectedImage) {
-      overlay.style.display = 'none';
-      return;
+        // Track gallery form changes
+        if (galleryForm) {
+            const galleryInputs = galleryForm.querySelectorAll('input, textarea');
+            galleryInputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    galleryFormChanged = true;
+                });
+                if (input.type !== 'file') {
+                    input.addEventListener('keyup', () => {
+                        galleryFormChanged = true;
+                    });
+                }
+            });
+            
+            // Reset galleryFormChanged on form submission
+            galleryForm.addEventListener('submit', function() {
+                galleryFormChanged = false;
+            });
+        }
+
+        // File input handling for gallery
+        document.getElementById('galleryFileInput').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const label = e.target.parentElement.querySelector('.file-selected');
+            label.textContent = files.length > 0 
+                ? `${files.length} file${files.length !== 1 ? 's' : ''} selected` 
+                : 'No files selected';
+            galleryFormChanged = true;
+        });
+
+        // File input handling for blog
+        document.getElementById('blogFileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const label = e.target.parentElement.querySelector('.file-selected');
+            label.textContent = file ? file.name : 'No file selected';
+            blogFormChanged = true;
+        });
+
+        // Initialize Quill editor for new blog posts
+        if (document.getElementById('new-editor-container')) {
+            const quill = new Quill('#new-editor-container', {
+                modules: {
+                    toolbar: [
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                        ['bold', 'italic', 'underline', 'strike'],
+                        [{ 'color': [] }, { 'background': [] }],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'align': [] }],
+                        ['link', 'blockquote'],
+                        ['clean']
+                    ]
+                },
+                theme: 'snow'
+            });
+
+            setupImageResizingInQuill(quill);
+            
+            // Track Quill editor changes
+            quill.on('text-change', function() {
+                blogFormChanged = true;
+            });
+            
+            // Handle form submission - update the hidden field with Quill's content
+            document.getElementById('newBlogForm').addEventListener('submit', function() {
+                document.getElementById('new-content-field').value = quill.root.innerHTML;
+                blogFormChanged = false;
+            });
+            
+            // Image Upload Button functionality
+            document.getElementById('new-image-button').addEventListener('click', function() {
+                document.getElementById('new-inline-image-upload').click();
+            });
+            
+            // Handle image upload to insert into Quill
+            document.getElementById('new-inline-image-upload').addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const formData = new FormData();
+                    formData.append('file', file);
+                    
+                    fetch('/admin/upload-inline-image', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.location) {
+                            // Get current cursor position or selection
+                            const range = quill.getSelection(true);
+                            
+                            // Insert image at current cursor position
+                            quill.insertEmbed(range.index, 'image', data.location);
+                            // Move cursor to right after the inserted image
+                            quill.setSelection(range.index + 1);
+                            blogFormChanged = true;
+                        } else {
+                            alert('Image upload failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error uploading image:', error);
+                        alert('Image upload failed');
+                    });
+                    
+                    // Reset file input
+                    this.value = '';
+                }
+            });
+        }
+        
+        // Function to check if any form has unsaved changes
+        function hasUnsavedChanges() {
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab.id === 'gallery-tab' && galleryFormChanged) {
+                return true;
+            }
+            if (activeTab.id === 'blog-tab' && blogFormChanged) {
+                return true;
+            }
+            return false;
+        }
+        
+        // Tab switching functionality with unsaved changes warning
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Check for unsaved changes
+                if (hasUnsavedChanges() && !confirm('You have unsaved changes. Are you sure you want to leave this tab?')) {
+                    return; // Stop if user cancels
+                }
+                
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                this.classList.add('active');
+                document.getElementById(`${this.dataset.tab}-tab`).classList.add('active');
+            });
+        });
+        
+        // Intercept navigation menu links
+        document.querySelectorAll('nav a, .admin-header-links a, .logo a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (hasUnsavedChanges() && !confirm('You have unsaved changes. Are you sure you want to leave this page?')) {
+                    e.preventDefault();
+                }
+            });
+        });
+        
+        // Add beforeunload event to warn before closing the window or navigating away
+        window.addEventListener('beforeunload', function(e) {
+            if (hasUnsavedChanges()) {
+                // Standard way to show a confirmation dialog before leaving
+                e.preventDefault();
+                // Chrome requires returnValue to be set
+                e.returnValue = 'You have unsaved changes. Are you sure you want to leave this page?';
+                // Return a string - though modern browsers will show their own generic message
+                return 'You have unsaved changes. Are you sure you want to leave this page?';
+            }
+        });
+    });
+
+    // Add delete confirmation to all delete forms
+    document.querySelectorAll('.delete-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Determine if it's a gallery or blog post
+            const isGallery = form.action.includes('delete-gallery');
+            const itemType = isGallery ? 'gallery' : 'blog post';
+            
+            // Find the title of the item being deleted
+            const card = form.closest('.admin-card');
+            const title = card.querySelector('.admin-card-title').textContent;
+            
+            // Create and show the confirmation dialog
+            if (confirm(`Warning: Are you sure you want to delete this ${itemType}?\n\n"${title}"\n\nThis action cannot be undone.`)) {
+                // If confirmed, submit the form
+                form.submit();
+            }
+        });
+    });
+
+    function setupImageResizingInQuill(quill) {
+        // Container to track the currently selected image
+        let selectedImage = null;
+        
+        // Create resize handles and overlay for the selected image
+        const overlay = document.createElement('div');
+        overlay.classList.add('image-resize-overlay');
+        overlay.style.display = 'none';
+        overlay.style.position = 'absolute';
+        overlay.style.border = '2px dashed #643c94';
+        overlay.style.pointerEvents = 'none';
+        
+        const resizeHandle = document.createElement('div');
+        resizeHandle.classList.add('image-resize-handle');
+        resizeHandle.style.width = '10px';
+        resizeHandle.style.height = '10px';
+        resizeHandle.style.position = 'absolute';
+        resizeHandle.style.bottom = '-5px';
+        resizeHandle.style.right = '-5px';
+        resizeHandle.style.background = '#643c94';
+        resizeHandle.style.cursor = 'nwse-resize';
+        resizeHandle.style.pointerEvents = 'all';
+        
+        // Create size control with width input
+        const sizeControl = document.createElement('div');
+        sizeControl.classList.add('image-size-control');
+        sizeControl.style.position = 'absolute';
+        sizeControl.style.top = '-30px';
+        sizeControl.style.left = '0';
+        sizeControl.style.background = 'rgba(100, 60, 148, 0.8)';
+        sizeControl.style.color = 'white';
+        sizeControl.style.padding = '4px 8px';
+        sizeControl.style.borderRadius = '3px';
+        sizeControl.style.pointerEvents = 'all';
+        sizeControl.style.display = 'flex';
+        sizeControl.style.alignItems = 'center';
+        sizeControl.style.gap = '8px';
+        
+        // Add width input
+        const widthInput = document.createElement('input');
+        widthInput.type = 'number';
+        widthInput.min = '50';
+        widthInput.max = '1000';
+        widthInput.placeholder = 'Width';
+        widthInput.style.width = '70px';
+        widthInput.style.background = 'white';
+        widthInput.style.color = '#333';
+        widthInput.style.border = 'none';
+        widthInput.style.borderRadius = '3px';
+        widthInput.style.padding = '3px';
+        
+        // Add small label
+        const widthLabel = document.createElement('span');
+        widthLabel.textContent = 'Width (px):';
+        widthLabel.style.fontSize = '12px';
+        
+        // Add elements to the DOM
+        sizeControl.appendChild(widthLabel);
+        sizeControl.appendChild(widthInput);
+        
+        overlay.appendChild(resizeHandle);
+        overlay.appendChild(sizeControl);
+        
+        // Add the overlay to the Quill container
+        const quillContainer = quill.container.parentNode;
+        quillContainer.style.position = 'relative';
+        quillContainer.appendChild(overlay);
+        
+        // Update overlay position based on selected image
+        function updateOverlayPosition() {
+            if (!selectedImage) {
+                overlay.style.display = 'none';
+                return;
+            }
+            
+            const rect = selectedImage.getBoundingClientRect();
+            const containerRect = quillContainer.getBoundingClientRect();
+            
+            overlay.style.display = 'block';
+            overlay.style.left = (rect.left - containerRect.left) + 'px';
+            overlay.style.top = (rect.top - containerRect.top) + 'px';
+            overlay.style.width = rect.width + 'px';
+            overlay.style.height = rect.height + 'px';
+            
+            widthInput.value = selectedImage.width;
+        }
+        
+        // Handle image selection
+        quill.root.addEventListener('click', function(e) {
+            if (e.target && e.target.tagName === 'IMG') {
+                selectedImage = e.target;
+                updateOverlayPosition();
+                
+                // Prevent the click from submitting forms
+                e.preventDefault();
+                e.stopPropagation();
+            } else {
+                selectedImage = null;
+                overlay.style.display = 'none';
+            }
+        });
+        
+        // Handle width input changes
+        widthInput.addEventListener('change', function(e) {
+            if (selectedImage && this.value >= 50 && this.value <= 1000) {
+                selectedImage.width = this.value;
+                updateOverlayPosition();
+            }
+            
+            // Prevent the change from submitting forms
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        
+        // Prevent form submission when interacting with controls
+        widthInput.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        
+        // Handle resize with drag
+        let isResizing = false;
+        let startX, startY, startWidth, startHeight;
+        
+        resizeHandle.addEventListener('mousedown', function(e) {
+            if (!selectedImage) return;
+            
+            isResizing = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            startWidth = selectedImage.width;
+            startHeight = selectedImage.height;
+            
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            
+            // Prevent the mousedown from submitting forms
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        
+        function handleMouseMove(e) {
+            if (!isResizing) return;
+            
+            const deltaX = e.clientX - startX;
+            const newWidth = Math.max(50, Math.min(1000, startWidth + deltaX));
+            
+            selectedImage.width = newWidth;
+            updateOverlayPosition();
+            
+            // Prevent the mousemove from submitting forms
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        function handleMouseUp(e) {
+            isResizing = false;
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+            
+            // Prevent the mouseup from submitting forms
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+        
+        // Handle window resize to reposition overlay
+        window.addEventListener('resize', function() {
+            if (selectedImage) {
+                updateOverlayPosition();
+            }
+        });
+        
+        // Clean up selection when clicking outside the editor
+        document.addEventListener('click', function(e) {
+            if (!quillContainer.contains(e.target)) {
+                selectedImage = null;
+                overlay.style.display = 'none';
+            }
+        });
     }
-    
-    const rect = selectedImage.getBoundingClientRect();
-    const containerRect = quillContainer.getBoundingClientRect();
-    
-    overlay.style.display = 'block';
-    overlay.style.left = (rect.left - containerRect.left) + 'px';
-    overlay.style.top = (rect.top - containerRect.top) + 'px';
-    overlay.style.width = rect.width + 'px';
-    overlay.style.height = rect.height + 'px';
-    
-    widthInput.value = selectedImage.width;
-  }
-  
-  // Handle image selection
-  quill.root.addEventListener('click', function(e) {
-    if (e.target && e.target.tagName === 'IMG') {
-      selectedImage = e.target;
-      updateOverlayPosition();
-      
-      // Prevent the click from submitting forms
-      e.preventDefault();
-      e.stopPropagation();
-    } else {
-      selectedImage = null;
-      overlay.style.display = 'none';
-    }
-  });
-  
-  // Handle width input changes
-  widthInput.addEventListener('change', function(e) {
-    if (selectedImage && this.value >= 50 && this.value <= 1000) {
-      selectedImage.width = this.value;
-      updateOverlayPosition();
-    }
-    
-    // Prevent the change from submitting forms
-    e.preventDefault();
-    e.stopPropagation();
-  });
-  
-  // Prevent form submission when interacting with controls
-  widthInput.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-  });
-  
-  // Handle resize with drag
-  let isResizing = false;
-  let startX, startY, startWidth, startHeight;
-  
-  resizeHandle.addEventListener('mousedown', function(e) {
-    if (!selectedImage) return;
-    
-    isResizing = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    startWidth = selectedImage.width;
-    startHeight = selectedImage.height;
-    
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-    
-    // Prevent the mousedown from submitting forms
-    e.preventDefault();
-    e.stopPropagation();
-  });
-  
-  function handleMouseMove(e) {
-    if (!isResizing) return;
-    
-    const deltaX = e.clientX - startX;
-    const newWidth = Math.max(50, Math.min(1000, startWidth + deltaX));
-    
-    selectedImage.width = newWidth;
-    updateOverlayPosition();
-    
-    // Prevent the mousemove from submitting forms
-    e.preventDefault();
-    e.stopPropagation();
-  }
-  
-  function handleMouseUp(e) {
-    isResizing = false;
-    document.removeEventListener('mousemove', handleMouseMove);
-    document.removeEventListener('mouseup', handleMouseUp);
-    
-    // Prevent the mouseup from submitting forms
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }
-  
-  // Handle window resize to reposition overlay
-  window.addEventListener('resize', function() {
-    if (selectedImage) {
-      updateOverlayPosition();
-    }
-  });
-  
-  // Clean up selection when clicking outside the editor
-  document.addEventListener('click', function(e) {
-    if (!quillContainer.contains(e.target)) {
-      selectedImage = null;
-      overlay.style.display = 'none';
-    }
-  });
-}
-    </script>
+</script>
 </body>
 </html>

@@ -610,3 +610,105 @@ html {
         padding: 10px 12px; /* Slightly reduce horizontal padding */
     }
 }
+
+
+/* Fix form inputs and textareas */
+.form-input, 
+.form-textarea,
+.tag-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Ensure the form containers don't overflow */
+.form-container,
+.admin-form {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+/* Prevent horizontal scroll on admin container */
+.admin-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 20px 50px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Fix for Quill editor container */
+#editor-container,
+#new-editor-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* Ensure all width calculations include padding and border */
+* {
+    box-sizing: border-box;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .admin-title {
+        margin-bottom: 15px;
+    }
+    
+    .admin-form {
+        padding: 20px 15px;
+    }
+    
+    .form-input, 
+    .form-textarea,
+    .tag-input {
+        font-size: 16px; /* Prevent zoom on mobile */
+    }
+}
+
+/* Fix Quill color issue */
+.ql-editor {
+    color: #333333 !important;
+    background-color: #ffffff;
+}
+
+.ql-editor p, 
+.ql-editor h1, 
+.ql-editor h2, 
+.ql-editor h3, 
+.ql-editor h4, 
+.ql-editor h5, 
+.ql-editor h6, 
+.ql-editor ul, 
+.ql-editor ol {
+    color: #333333 !important;
+}
+
+/* Fix file upload alignment */
+.file-upload {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.file-label {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.file-selected {
+    margin-top: 5px;
+    width: 100%;
+}
