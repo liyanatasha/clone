@@ -168,17 +168,24 @@
         }
     
         .read-more {
-            color: #643c94;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s ease;
+            padding: 8px 16px;
+        background: #643c94;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         }
     
         .read-more:hover {
-            color: #f3eb2e;
+            background: #f3eb2e;
+        color: #643c94;
+        transform: translateY(-2px);
         }
     
         .read-more::after {
