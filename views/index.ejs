@@ -18,12 +18,272 @@
     <link rel="manifest" href="/images/site.webmanifest">
 
     <style>
-      
-      </style>
+        /* Reset and Basic Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: #a8d1ff;
+        }
+        
+        /* Fixed Header Adjustment */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #643c94;
+        }
+        
+        /* Adjust content to account for fixed header */
+        .header-spacer {
+            height: 140px; /* Extra large to ensure no overlap */
+            width: 100%;
+        }
+        
+        /* Main Content Container */
+        .main-content {
+            padding-top: 0;
+            margin-top: 0;
+            background-color: #a8d1ff;
+        }
+        
+        /* Spacer */
+        .spacer {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Hero Carousel Styles */
+        .carousel-container {
+            position: relative;
+            width: 90%;
+            max-width: 1600px;
+            height: 600px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 20px; /* Add top margin */
+            padding-top: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            width: 80%;
+            max-width: 1000px;
+            color: white;
+            padding: 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* CTA Button Styles */
+        .cta-button {
+            display: inline-block;
+            background-color: #f3eb2e;
+            color: #643c94;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background-color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            background-color: #643c94;  /* Changed back to purple background */
+            padding: 40px 0;
+            text-align: center;
+            color: white;  /* Changed text color back to white */
+            margin: 0;
+            width: 90%;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .partners-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .partners-heading {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .partners-logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Increased gap for larger logos */
+        }
+        
+        .partner-logo {
+            width: 240px;  /* Doubled from 120px */
+            height: 160px; /* Doubled from 80px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;  /* Doubled from 10px */
+            background: none;
+            border-radius: 0;
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 500px;
+                width: 95%;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .partners-section {
+                width: 95%;
+            }
+            
+            .partners-logo-grid {
+                gap: 20px;
+            }
+            
+            .partner-logo {
+                width: 200px; /* Reduced slightly for tablet */
+                height: 140px;
+                padding: 15px;
+            }
+            
+            .spacer {
+                height: 30px !important;
+            }
+            
+            .header-spacer {
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-container {
+                height: 400px;
+                width: 98%;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-content {
+                width: 90%;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .partners-section {
+                width: 98%;
+            }
+            
+            .partner-logo {
+                width: 160px; /* Reduced for mobile but still larger than original */
+                height: 120px;
+                padding: 10px;
+            }
+            
+            .spacer {
+                height: 20px !important;
+            }
+            
+            .header-spacer {
+                height: 100px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header class="main-header">
+    <header class="main-header" style="z-index: 1000;">
         <div class="header-content">
             <a href="/" class="logo">
                 <img src="/images/nav_logo.png" alt="TeamBuild Co. Logo" class="nav-logo">
@@ -43,52 +303,67 @@
         </div>
     </header>
 
+    <!-- Header Spacer to prevent content from being hidden behind fixed header -->
+    <div class="header-spacer"></div>
+    
+    <!-- Additional spacing after header -->
+    <div class="spacer" style="height: 20px;"></div>
+
     <div class="main-content">
-        <section class="slanted-background">
-            <div class="geometric-circle"></div>
-            <div class="geometric-circle-2"></div>
-            <div class="geometric-circle-3"></div>
-    <div class="geometric-circle-4"></div>
-    <div class="geometric-circle-5"></div>
-<div class="geometric-circle-6"></div>
-            <div class="geometric-cube"></div>
-            <div class="geometric-cube-2"></div>
+        <!-- Hero Carousel Section -->
+        <section class="carousel-container">
+            <div class="carousel-overlay"></div>
+            <div class="carousel-slide active" style="background-image: url('/images/grid_1.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('/images/grid_2.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('/images/grid_3.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('/images/grid_4.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('/images/grid_5.jpg');"></div>
+            
             <div class="hero-content">
-                <h1>Immerse In Your Leadership & Human Development</h1>
-                <p>At Experience Enablers, we transform team dynamics and leadership growth through immersive learning experiences.</p>
-                <p>Using gamification strategies and behavioral science, we design engaging corporate training programs that foster collaboration, enhance leadership skills and unlock your team's full potential.</p>
+                <h1>Your Experiential Leadership Partners</h1>
+                <p>We help <strong>Leaders of Tomorrow</strong> to achieve <strong>sustainable Leadership Growth</strong> through <strong>Experiential Learning & Personalized Coaching</strong> so that they can <strong>unlock their full potential in personal, professional and relationships</strong>.</p>
+                <a href="/contact" class="cta-button">Start Your Leadership Journey</a>
             </div>
         </section>
-        <div class="yellow-line"></div>
-
-        <section class="photo-frame-container">
-            <div class="photo-frame">
-                <div class="image-grid">
-                    <div class="image-piece piece1">
-                        <img src="/images/grid_1.jpg" alt="Image 1">
+        
+        <!-- Spacer between carousel and partners section -->
+        <div class="spacer" style="height: 40px;"></div>
+        
+        <!-- Partners Section -->
+        <section class="partners-section">
+            <div class="partners-container">
+                <h2 class="partners-heading">As seen on:</h2>
+                <div class="partners-logo-grid">
+                    <div class="partner-logo">
+                        <img src="/images/1.png" alt="Partner 1">
                     </div>
-                    <div class="image-piece piece2">
-                        <img src="/images/grid_2.jpg" alt="Image 2">
+                    <div class="partner-logo">
+                        <img src="/images/2.jpeg" alt="Partner 2">
                     </div>
-                    <div class="image-piece piece3">
-                        <img src="/images/grid_3.jpg" alt="Image 3">
+                    <div class="partner-logo">
+                        <img src="/images/3.png" alt="Partner 3">
                     </div>
-                    <div class="image-piece piece4">
-                        <img src="/images/grid_4.jpg" alt="Image 4">
+                    <div class="partner-logo">
+                        <img src="/images/4.png" alt="Partner 4">
                     </div>
-                    <div class="image-piece piece5">
-                        <img src="/images/grid_5.jpg" alt="Image 5">
+                    <div class="partner-logo">
+                        <img src="/images/5.png" alt="Partner 5">
                     </div>
-                    <div class="image-piece piece6">
-                        <img src="/images/grid_6.jpg" alt="Image 6">
+                    <div class="partner-logo">
+                        <img src="/images/6.png" alt="Partner 6">
                     </div>
-                    <div class="image-piece piece7">
-                        <img src="/images/grid_7.jpg" alt="Image 7">
+                    <div class="partner-logo">
+                        <img src="/images/7.png" alt="Partner 7">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="/images/8.png" alt="Partner 8">
                     </div>
                 </div>
             </div>
         </section>
     </div>
+
+    <div class="spacer" style="height: 40px;"></div>
 
     <footer class="site-footer">
         <div class="footer-content">
@@ -115,9 +390,10 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Mobile Menu & Carousel Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('.main-header nav ul');
             
@@ -141,6 +417,19 @@
                     nav.classList.remove('active');
                 });
             });
+            
+            // Carousel Functionality
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Set interval for automatic slide transitions
+            setInterval(nextSlide, 3000);
         });
     </script>
 </body>
