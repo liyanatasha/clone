@@ -166,10 +166,6 @@
             border-top: 1px solid #eee;
         }
     
-        .blog-date {
-            color: #888;
-            font-size: 0.9rem;
-        }
     
         .read-more {
             padding: 8px 16px;
@@ -457,11 +453,6 @@ html, body {
                                 <% }); %>
                             </div>
                             <div class="blog-meta">
-                                <span class="blog-date"><%= new Date(post.created_at).toLocaleDateString('en-US', { 
-                                    year: 'numeric', 
-                                    month: 'long', 
-                                    day: 'numeric' 
-                                }) %></span>
                                 <a href="/blog/<%= post.slug %>" class="read-more">Read More</a>
                             </div>
                         </div>

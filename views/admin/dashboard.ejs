@@ -318,9 +318,7 @@
         }
 
         /* Keep post date in a visible color */
-.post-date, .gallery-date {
-    color: #666666; /* Darker gray for better visibility */
-}
+
 
         @media (max-width: 480px) {
             .admin-grid {
@@ -596,9 +594,6 @@ html, body {
                         <div class="admin-card-header">
                             <h3 class="admin-card-title"><%= gallery.title %></h3>
                             <div class="admin-card-actions">
-                                <span class="gallery-date">
-                                    <i class="fas fa-calendar"></i> <%= gallery.created_at %>
-                                </span>
                                 <a href="/admin/edit-gallery/<%= gallery.id %>" class="edit-btn">
                                     <i class="fas fa-edit"></i> Edit Gallery
                                 </a>
@@ -703,9 +698,6 @@ html, body {
                         <div class="admin-card-header">
                             <h3 class="admin-card-title"><%= post.title %></h3>
                             <div class="admin-card-actions">
-                                <span class="post-date">
-                                    <i class="fas fa-calendar"></i> <%= post.created_at %>
-                                </span>
                                 <a href="/admin/edit-blog/<%= post.id %>" class="edit-btn">
                                     <i class="fas fa-edit"></i> Edit Post
                                 </a>

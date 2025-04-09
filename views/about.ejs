@@ -53,10 +53,62 @@
     flex-wrap: wrap;
     width: 100%;
     max-width: 1200px;
-    margin: -100px auto 0;
+    margin: -30px auto 0;
     padding: 0 20px;
     position: relative;
     z-index: 2;
+}
+
+.section-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #643c94;
+    font-size: 2.2rem;
+}
+
+.partnering-trainers {
+    margin-top: 80px;
+    width: 100%;
+    margin-bottom: 80px; /* Added bottom margin to create gap before footer */
+}
+
+.trainers-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 1200px) {
+    .trainers-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    
+    .trainers-container .about-box {
+        flex: 0 0 auto;
+        width: calc((100% - 80px) / 3);
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 769px) {
+    .trainers-container {
+        justify-content: center;
+    }
+    
+    .trainers-container .about-box:nth-child(3) {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .trainers-container {
+        max-width: 840px;
+        margin: 0 auto;
+    }
 }
 
 .about-box {
@@ -106,6 +158,13 @@
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 20px;
+}
+
+.one-liner {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 1rem;
 }
 
 .linkedin-link {
@@ -309,7 +368,7 @@
     }
 
     .about-container {
-        margin-top: -50px;
+        margin-top: -200px;
     }
 
     .about-box {
@@ -343,6 +402,10 @@
 
     .gamification-science ul li {
         margin-bottom: 20px;
+    }
+
+    .trainers-container {
+        justify-content: center;
     }
 }
 
@@ -487,14 +550,6 @@ html, body {
         box-sizing: border-box;
     }
 }
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -539,6 +594,9 @@ html, body {
 
         <!-- Team Section -->
         <div class="about-container">
+            <!-- Co-founders Section -->
+            <h5 class="section-title">The team that is passionate in buildling Leaders of Tomorrow</h5>
+            
             <!-- Jason Fung Card -->
             <div class="about-box">
                 <div class="profile-pic">
@@ -547,6 +605,7 @@ html, body {
                 <h2>JASON FUNG</h2>
                 <h3>People Development & Engagement</h3>
                 <p class="role">Chief Executive Officer</p>
+                <p class="one-liner">Lorem ipsum</p>
                 <a href="https://linkedin.com/in/jasonfjh" target="_blank" class="linkedin-link">
                     <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -563,12 +622,68 @@ html, body {
                 <h2>MICHELLE WONG</h2>
                 <h3>People Development & Engagement</h3>
                 <p class="role">Chief Operating Officer</p>
+                <p class="one-liner">Lorem ipsum</p>
                 <a href="https://linkedin.com/in/michelle-wtq" target="_blank" class="linkedin-link">
                     <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                     /michelle-wtq
                 </a>
+            </div>
+            
+            <!-- Partnering Trainers Section -->
+            <div class="partnering-trainers">
+                <h2 class="section-title">Partnering Trainers</h2>
+                
+                <div class="trainers-container">
+                    <!-- Trainer 1 Card -->
+                    <div class="about-box">
+                        <div class="profile-pic">
+                            <img src="/images/placeholder.png" alt="Trainer Name">
+                        </div>
+                        <h2>TRAINER NAME</h2>
+                        <h3>Expertise Area</h3>
+                        <p class="role">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque rhoncus sapien sit amet pharetra. Maecenas ultricies quam non velit mollis laoreet. Phasellus at blandit arcu, nec maximus sem.</p>
+                        <a href="https://linkedin.com/in/trainer-profile" target="_blank" class="linkedin-link">
+                            <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            /trainer-profile
+                        </a>
+                    </div>
+                    
+                    <!-- Trainer 2 Card -->
+                    <div class="about-box">
+                        <div class="profile-pic">
+                            <img src="/images/placeholder.png" alt="Trainer Name">
+                        </div>
+                        <h2>TRAINER NAME</h2>
+                        <h3>Expertise Area</h3>
+                        <p class="role">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque rhoncus sapien sit amet pharetra. Maecenas ultricies quam non velit mollis laoreet. Phasellus at blandit arcu, nec maximus sem.</p>
+                        <a href="https://linkedin.com/in/trainer-profile" target="_blank" class="linkedin-link">
+                            <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            /trainer-profile
+                        </a>
+                    </div>
+                    
+                    <!-- Trainer 3 Card -->
+                    <div class="about-box">
+                        <div class="profile-pic">
+                            <img src="/images/placeholder.png" alt="Trainer Name">
+                        </div>
+                        <h2>TRAINER NAME</h2>
+                        <h3>Expertise Area</h3>
+                        <p class="role">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque rhoncus sapien sit amet pharetra. Maecenas ultricies quam non velit mollis laoreet. Phasellus at blandit arcu, nec maximus sem.</p>
+                        <a href="https://linkedin.com/in/trainer-profile" target="_blank" class="linkedin-link">
+                            <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            /trainer-profile
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
