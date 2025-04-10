@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Recovery Codes - Experience Enablers</title>
+    <!-- External stylesheets -->
     <link rel="stylesheet" href="/style.css">
+    <!-- Favicon links -->
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/images/site.webmanifest">
     <style>
-        /* Use same base styles as other pages */
+        /* Container styles */
         .login-container {
             min-height: 100vh;
             display: flex;
@@ -30,6 +32,7 @@
             max-width: 600px;
         }
 
+        /* Logo styles */
         .login-logo {
             text-align: center;
             margin-bottom: 30px;
@@ -39,6 +42,7 @@
             max-width: 200px;
         }
 
+        /* Warning box styles */
         .warning-box {
             background: #fff3cd;
             border: 2px solid #ffeeba;
@@ -54,6 +58,7 @@
             margin-bottom: 15px;
         }
 
+        /* Recovery code styles */
         .code-container {
             background: #f8f9fa;
             padding: 20px;
@@ -84,16 +89,21 @@
             text-align: center;
         }
 
-        .print-btn {
+        /* Button styles */
+        .btn {
             width: 100%;
             padding: 15px;
-            background: #643c94;
-            color: white;
             border: none;
             border-radius: 5px;
             font-size: 1.1rem;
             cursor: pointer;
             transition: background 0.3s ease;
+            color: white;
+            text-align: center;
+        }
+
+        .print-btn {
+            background: #643c94;
             margin-bottom: 15px;
         }
 
@@ -102,24 +112,16 @@
         }
 
         .continue-btn {
-            width: 100%;
-            padding: 15px;
             background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            text-align: center;
         }
 
         .continue-btn:hover {
             background: #218838;
         }
 
+        /* Print-specific styles */
         @media print {
             .no-print {
                 display: none;
@@ -156,11 +158,11 @@
                 </div>
             </div>
 
-            <button onclick="window.print()" class="print-btn no-print">
+            <button onclick="window.print()" class="btn print-btn no-print">
                 Print Recovery Codes
             </button>
 
-            <a href="/admin" class="continue-btn no-print">
+            <a href="/admin" class="btn continue-btn no-print">
                 Continue to Admin Dashboard
             </a>
         </div>

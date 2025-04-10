@@ -17,499 +17,425 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/images/site.webmanifest">
     <style>
-        /* Services Page Specific Styles */
-body {
-    background-color: #a8d1ff; /* Main blue background */
-}
+        /* Base styles for services page */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
 
-.main-content {
-    padding-top: 100px;
-    color: #643c94;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    overflow-x: hidden;
-    position: relative;
-}
+        .main-content {
+            padding-top: 100px;
+            color: #643c94;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-.services-hero {
-    background-color: #643c94;
-    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-    padding: 120px 0 200px;
-    color: white;
-}
+        /* Hero section with angled clip-path */
+        .services-hero {
+            background-color: #643c94;
+            clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+            -webkit-clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+            padding: 120px 0 200px;
+            color: white;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+            left: 0;
+        }
 
-.services-intro {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
-}
+        .services-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+        }
 
-.services-intro h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
+        .services-intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
 
-.services-intro p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
+        .services-intro p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
 
-/* Content Section */
-.main-content-area {
-    max-width: 1200px;
-    margin: -50px auto 50px;
-    padding: 20px;
-    position: relative;
-    z-index: 2;
-}
+        /* Main content container */
+        .main-content-area {
+            max-width: 1200px;
+            margin: -50px auto 50px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-/* Area of Focus Section */
-.area-focus-section {
-    text-align: center;
-    margin-bottom: 80px; /* Increased margin to create more space */
-}
+        /* Container styles for consistent layout */
+        .services-container, .gallery-container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
 
-.area-focus-title {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 50px; /* Increased from 30px to 50px to add more space */
-    font-weight: bold;
-}
+        /* Area of Focus section */
+        .area-focus-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
 
-.focus-cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* Increased from 20px to 40px to add more space between boxes */
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
+        .area-focus-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
 
-.focus-card {
-    background-color: #f3eb2e;
-    border-radius: 15px;
-    padding: 20px;
-    width: 250px; /* Increased from 180px to 250px to make boxes wider */
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
-    color: #000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .focus-cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
 
-.focus-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-}
+        .focus-card {
+            background-color: #f3eb2e;
+            border-radius: 15px;
+            padding: 20px;
+            width: 250px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            color: #000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Signature Programs Section */
-.signature-programs-section {
-    text-align: center;
-    margin-top: 60px; /* Added more space above the section */
-    margin-bottom: 60px; /* Added more space below the section */
-}
+        .focus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
 
-.signature-programs-title {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 50px; /* Increased space between title and boxes */
-    font-weight: bold;
-}
+        /* Signature Programs section */
+        .signature-programs-section {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
 
-.programs-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* Increased gap between cards */
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
+        .signature-programs-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
 
-.program-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 320px; /* Increased width further */
-    background-color: #e6f0f9;
-    display: flex;
-    flex-direction: column;
-    margin: 0 15px; /* Added more margin between cards */
-}
+        .programs-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-.program-image {
-    height: 150px; /* Increased image area height */
-    background-color: #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-}
+        /* Program card styling */
+        .program-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 320px;
+            background-color: #e6f0f9;
+            display: flex;
+            flex-direction: column;
+            margin: 0 15px;
+        }
 
-.program-content {
-    padding: 20px; /* Increased padding */
-    color: #333;
-    text-align: left;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
+        .program-image {
+            height: 150px;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
 
-.program-content h3 {
-    margin-bottom: 30px; /* Increased from 20px to 30px to add more space between title and first bullet */
-    color: #643c94;
-    font-size: 1.4rem; /* Larger font size */
-    font-weight: bold;
-    text-align: center; /* Center the title text */
-}
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.program-content ul {
-    list-style-type: disc; /* Add bullet points */
-    padding-left: 20px; /* Indent the bullets */
-    margin: 0 0 40px 0; /* Increased bottom margin to create space before button */
-    flex-grow: 1;
-}
+        .program-content {
+            padding: 20px;
+            color: #333;
+            text-align: left;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-.program-content li {
-    margin-bottom: 12px; /* Space between items */
-    position: relative;
-    padding-left: 5px; /* Reduced padding since we now have real bullets */
-    font-size: 1rem;
-    line-height: 1.4;
-}
+        .program-content h3 {
+            margin-bottom: 30px;
+            color: #643c94;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+        }
 
-/* Remove the before pseudo-element since we're using real bullets */
-.program-content li:before {
-    content: none;
-}
+        .program-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0 0 40px 0;
+            flex-grow: 1;
+        }
 
-.whatsapp-button {
-    background-color: #643c94; /* Changed to purple */
-    color: white;
-    text-decoration: none;
-    padding: 12px 15px; /* Larger padding */
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 20px; /* Add more space above the button */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
+        .program-content li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 5px;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
 
-.whatsapp-button:hover {
-    background-color: #4e2e73; /* Darker purple on hover */
-    transform: translateY(-2px);
-}
+        /* WhatsApp contact button */
+        .whatsapp-button {
+            background-color: #643c94;
+            color: white;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
 
-.whatsapp-icon {
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
-}
+        .whatsapp-button:hover {
+            background-color: #4e2e73;
+            transform: translateY(-2px);
+        }
 
-.program-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .whatsapp-icon {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+        }
 
-@media (max-width: 768px) {
-    .services-hero {
-        padding: 100px 0 150px;
-    }
+        /* Geometric shapes positioning */
+        .geometric-circle, 
+        .geometric-circle-2, 
+        .geometric-circle-3, 
+        .geometric-circle-4, 
+        .geometric-circle-5, 
+        .geometric-circle-6,
+        .geometric-cube,
+        .geometric-cube-2 {
+            position: absolute;
+            z-index: 1;
+        }
 
-    .services-intro h1 {
-        font-size: 2rem;
-    }
-    
-    .services-intro p {
-        font-size: 1rem;
-    }
+        /* Header and footer containment */
+        .main-header, .site-footer {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
 
-    .area-focus-section,
-    .signature-programs-section {
-        margin-top: 30px;
-    }
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .main-content {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            
+            .services-hero {
+                padding: 100px 0 150px;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
 
-    .focus-card {
-        width: 160px;
-    }
+            .services-intro h1 {
+                font-size: 2rem;
+            }
+            
+            .services-intro p {
+                font-size: 1rem;
+            }
 
-    .program-card {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .program-content ul {
-        margin-bottom: 30px; /* Adjust spacing for mobile */
-    }
-}
+            .area-focus-section,
+            .signature-programs-section {
+                margin-top: 30px;
+            }
 
-@media (max-width: 480px) {
-    .services-hero {
-        padding: 80px 0 120px;
-    }
+            .focus-card {
+                width: 160px;
+            }
 
-    .services-intro h1 {
-        font-size: 1.75rem;
-    }
+            .program-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .program-content ul {
+                margin-bottom: 30px;
+            }
+        }
 
-    .focus-cards-container {
-        flex-direction: column;
-        align-items: center;
-    }
+        @media (max-width: 480px) {
+            .services-hero {
+                padding: 80px 0 120px;
+            }
 
-    .focus-card {
-        width: 220px;
-    }
-    
-    .program-content ul {
-        margin-bottom: 25px; /* Further adjust spacing for small mobile */
-    }
-}
+            .services-intro h1 {
+                font-size: 1.75rem;
+            }
 
-/* Force body to hide overflow */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
+            .focus-cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-/* Fix hero section */
-.services-hero, .gallery-header {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-    left: 0;
-}
-
-/* Fix clip-path which might be causing overflow */
-.services-hero, .gallery-header {
-    -webkit-clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-}
-
-/* Fix container divs */
-.services-container, .gallery-container {
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-/* Fix intro text alignment */
-.services-intro, .gallery-intro {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
-    position: relative;
-    z-index: 2;
-    box-sizing: border-box;
-}
-
-/* Make sure header and footer are contained */
-.main-header, .site-footer {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-/* Fix geometric shapes positioning */
-.geometric-circle, 
-.geometric-circle-2, 
-.geometric-circle-3, 
-.geometric-circle-4, 
-.geometric-circle-5, 
-.geometric-circle-6,
-.geometric-cube,
-.geometric-cube-2 {
-    position: absolute;
-    z-index: 1;
-}
-
-/* Add media query to handle horizontal overflow on small screens */
-@media (max-width: 768px) {
-    * {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .main-content {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    .services-hero, .gallery-header {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
+            .focus-card {
+                width: 220px;
+            }
+            
+            .program-content ul {
+                margin-bottom: 25px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header class="main-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img src="/images/nav_logo.png" alt="TeamBuild Co. Logo" class="nav-logo">
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/gallery">Gallery</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Mobile Menu">
-                <span class="hamburger"></span>
-            </button>
-        </div>
-    </header>
+    <%- include('partials/header') %>
+    
     <div class="main-content">
-    <!-- Hero Section -->
-    <section class="services-hero">
-        <div class="geometric-circle"></div>
-        <div class="geometric-circle-2"></div>
-        <div class="geometric-circle-3"></div>
-        <div class="geometric-circle-4"></div>
-        <div class="geometric-circle-5"></div>
-        <div class="geometric-circle-6"></div>
-        <div class="geometric-cube"></div>
-        <div class="geometric-cube-2"></div>
-        <div class="services-intro">
-            <h1>Services for Leaders</h1>
-            <p>Explore our comprehensive leadership development services designed to transform individuals and teams through experiential learning and targeted training programs.</p>
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <div class="geometric-circle"></div>
+            <div class="geometric-circle-2"></div>
+            <div class="geometric-circle-3"></div>
+            <div class="geometric-circle-4"></div>
+            <div class="geometric-circle-5"></div>
+            <div class="geometric-circle-6"></div>
+            <div class="geometric-cube"></div>
+            <div class="geometric-cube-2"></div>
+            <div class="services-intro">
+                <h1>Services for Leaders</h1>
+                <p>Explore our comprehensive leadership development services designed to transform individuals and teams through experiential learning and targeted training programs.</p>
+            </div>
+        </section>
+
+        <!-- Services Content -->
+        <div class="main-content-area">
+            <!-- Area of Focus Section -->
+            <section class="area-focus-section">
+                <h2 class="area-focus-title">Our Area of Focus</h2>
+                <div class="focus-cards-container">
+                    <div class="focus-card">Self Leadership</div>
+                    <div class="focus-card">Team Leadership</div>
+                    <div class="focus-card">Organizational Leadership</div>
+                </div>
+            </section>
+
+            <!-- Services & Signature Programs Section -->
+            <section class="signature-programs-section">
+                <h2 class="signature-programs-title">Our Services & Signature Programme</h2>
+                <div class="programs-container">
+                    <!-- Teambuilding Program Card -->
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="/images/teambuilding-bg.jpg" alt="Teambuilding Preview">
+                        </div>
+                        <div class="program-content">
+                            <h3>Teambuilding</h3>
+                            <ul>
+                                <li>Full Fun Teambuilding</li>
+                                <li>Solution Focused Teambuilding</li>
+                                <li>Culture Driven Teambuilding</li>
+                            </ul>
+                            <a href="https://wa.me/60198205889?text=Hi%2C%20I%27m%20interested%20in%20your%20Teambuilding%20programme.%20Could%20you%20share%20more%20details%3F" class="whatsapp-button">
+                                <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                                </svg>
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Workshops Program Card -->
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="/images/grid_4.jpg" alt="Workshops Preview">
+                        </div>
+                        <div class="program-content">
+                            <h3>Workshops</h3>
+                            <ul>
+                                <li>Self Leadership</li>
+                                <li>Team Leadership</li>
+                                <li>Organizational Leadership</li>
+                            </ul>
+                            <a href="https://wa.me/60198205889?text=Hi%2C%20I%27m%20interested%20in%20your%20Workshop%20programme.%20Could%20you%20share%20more%20details%3F" class="whatsapp-button">
+                                <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                                </svg>
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Leadership Transformation Program Card -->
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="/images/learning-bg.jpg" alt="Leadership Transformation Program Preview">
+                        </div>
+                        <div class="program-content">
+                            <h3>Leadership Transformation Journey</h3>
+                            <ul>
+                                <li>Management Trainee Learning Journey</li>
+                                <li>Leadership Development Journey</li>
+                                <li>Customized Capacity Building Sessions</li>
+                            </ul>
+                            <a href="https://wa.me/60198205889?text=Hi%2C%20I%27m%20interested%20in%20your%20Leadership%20Transformation%20Journey%20programme.%20Could%20you%20share%20more%20details%3F" class="whatsapp-button">
+                                <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                                </svg>
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-
-    <!-- Services Content -->
-    <div class="main-content-area">
-        <!-- Area of Focus Section -->
-        <section class="area-focus-section">
-            <h2 class="area-focus-title">Our Area of Focus</h2>
-            <div class="focus-cards-container">
-                <div class="focus-card">
-                    Self Leadership
-                </div>
-                <div class="focus-card">
-                    Team Leadership
-                </div>
-                <div class="focus-card">
-                    Organizational Leadership
-                </div>
-            </div>
-        </section>
-
-        <!-- Services & Signature Programs Section -->
-        <section class="signature-programs-section">
-            <h2 class="signature-programs-title">Our Services & Signature Programme</h2>
-            <div class="programs-container">
-                <!-- Teambuilding Program Card -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/images/teambuilding-bg.jpg">
-                    </div>
-                    <div class="program-content">
-                        <h3>Teambuilding</h3>
-                        <ul>
-                            <li>Full Fun Teambuilding</li>
-                            <li>Solution Focused Teambuilding</li>
-                            <li>Culture Driven Teambuilding</li>
-                        </ul>
-                        <a href="https://wa.me/60198205889?text=Hi%2C%20I%27m%20interested%20in%20your%20Teambuilding%20programme.%20Could%20you%20share%20more%20details%3F" class="whatsapp-button">
-                            <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-                            </svg>
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Workshops Program Card -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/images/grid_4.jpg" alt="Workshops Preview">
-                    </div>
-                    <div class="program-content">
-                        <h3>Workshops</h3>
-                        <ul>
-                            <li>Self Leadership</li>
-                            <li>Team Leadership</li>
-                            <li>Organizational Leadership</li>
-                        </ul>
-                        <a href="https://wa.me/60198205889?text=Hi%2C%20I%27m%20interested%20in%20your%20Workshop%20programme.%20Could%20you%20share%20more%20details%3F" class="whatsapp-button">
-                            <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-                            </svg>
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Leadership Transformation Program Card -->
-                <div class="program-card">
-                    <div class="program-image">
-                        <img src="/images/learning-bg.jpg" alt="Leadership Transformation Program Preview">
-                    </div>
-                    <div class="program-content">
-                        <h3>Leadership Transformation Journey</h3>
-                        <ul>
-                            <li>Management Trainee Learning Journey</li>
-                            <li>Leadership Development Journey</li>
-                            <li>Customized Capacity Building Sessions</li>
-                        </ul>
-                        <a href="https://wa.me/60198205889?text=Hi%2C%20I%27m%20interested%20in%20your%20Leadership%20Transformation%20Journey%20programme.%20Could%20you%20share%20more%20details%3F" class="whatsapp-button">
-                            <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-                            </svg>
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-    </div>
+    
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="/images/nav_logo.png" alt="TeamBuild Co. Logo" class="brand-logo">
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/experience-enablers" target="_blank" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/experienceenablers/" target="_blank" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                &copy; <script>document.write(new Date().getFullYear());</script> Experience Enablers. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+    <%- include('partials/footer') %>
 
     <!-- Mobile Menu Script -->
     <script>

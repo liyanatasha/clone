@@ -4,598 +4,509 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Experience Enablers</title>
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" content="At Experience Enablers, we help leaders and teams thrive through immersive learning. Explore our leadership training and corporate team-building programs.">
     <meta name="keywords" content="team building, leadership training, corporate development, professional growth">
+    
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="About Us - Experience Enablers">
     <meta property="og:description" content="Learn more about Experience Enablers and how we help teams and leaders thrive through transformative learning programs.">
     <meta property="og:image" content="/images/logo_footer.png">
     <meta property="og:url" content="https://www.experienceenablers.com/about">
     <meta property="og:type" content="website">
+    
+    <!-- Stylesheets and Favicons -->
     <link rel="stylesheet" href="/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/images/site.webmanifest">
+    
     <style>
+        /* Global Styles and Fixes */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
         .main-content {
-    padding-top: 100px;
-    color: #643c94;
-}
-
-.about-section {
-    background-color: #643c94;
-    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-    padding: 120px 0 200px;
-    color: white;
-}
-
-.about-intro {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.about-intro h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.about-intro p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-.about-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 1200px;
-    margin: -30px auto 0;
-    padding: 0 20px;
-    position: relative;
-    z-index: 2;
-}
-
-.section-title {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #643c94;
-    font-size: 2.2rem;
-}
-
-.partnering-trainers {
-    margin-top: 80px;
-    width: 100%;
-    margin-bottom: 80px; /* Added bottom margin to create gap before footer */
-}
-
-.trainers-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-@media (min-width: 1200px) {
-    .trainers-container {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
-    
-    .trainers-container .about-box {
-        flex: 0 0 auto;
-        width: calc((100% - 80px) / 3);
-    }
-}
-
-@media (max-width: 1199px) and (min-width: 769px) {
-    .trainers-container {
-        justify-content: center;
-    }
-    
-    .trainers-container .about-box:nth-child(3) {
-        margin-top: 40px;
-    }
-}
-
-@media (max-width: 992px) and (min-width: 769px) {
-    .trainers-container {
-        max-width: 840px;
-        margin: 0 auto;
-    }
-}
-
-.about-box {
-    width: 400px;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border: 4px solid #f3eb2e; /* Thick yellow border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-.about-box:hover {
-    transform: translateY(-10px); /* Lift the box on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-}
-
-.profile-pic {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 25px;
-    border: 3px solid #643c94; /* Keep the profile picture border as is */
-}
-
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.about-box h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #643c94;
-}
-
-.about-box h3 {
-    font-size: 1.2rem;
-    color: #4a90e2;
-    margin-bottom: 8px;
-}
-
-.role {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.one-liner {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.linkedin-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #643c94;
-    text-decoration: none;
-    transition: opacity 0.3s;
-}
-
-.linkedin-icon {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-}
-
-.linkedin-link:hover {
-    opacity: 0.8;
-}
-
-/* Fixed Gamification Science Section */
-.gamification-science {
-    max-width: 800px;
-    margin: 80px auto;
-    padding: 40px;
-    line-height: 1.8;
-    background-color: rgba(100, 60, 148, 0.08);
-    border-radius: 15px;
-    box-shadow: 0 6px 18px rgba(100, 60, 148, 0.15);
-    border: 3px solid #643c94;
-    position: relative;
-    box-sizing: border-box;
-    overflow: hidden;
-    word-wrap: break-word;
-}
-
-.gamification-science h2 {
-    font-size: 2.5rem;
-    color: #643c94;
-    margin-bottom: 30px;
-    line-height: 1.3;
-    text-align: left;
-    padding-bottom: 15px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.gamification-science h3 {
-    font-size: 1.8rem;
-    color: #643c94;
-    margin: 40px 0 25px;
-    text-align: left;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.gamification-science p {
-    font-size: 1.1rem;
-    color: #444;
-    margin-bottom: 25px;
-    text-align: left;
-    line-height: 1.8;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.gamification-science ul {
-    text-align: left;
-    margin: 30px 0 40px;
-    padding-left: 25px;
-    list-style-type: none;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.gamification-science ul li {
-    margin-bottom: 25px;
-    position: relative;
-    padding-left: 25px;
-    color: #444;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.gamification-science ul li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 8px;
-    height: 8px;
-    background-color: #643c94;
-    border-radius: 50%;
-}
-
-.gamification-science ul li strong {
-    color: #643c94;
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1.15rem;
-    line-height: 1.4;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.gamification-science a {
-    color: #643c94;
-    text-decoration: none;
-    border-bottom: 2px solid #f3eb2e;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    padding-bottom: 2px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.gamification-science a:hover {
-    background-color: rgba(243, 235, 46, 0.15);
-    border-color: #643c94;
-    padding: 0 3px;
-}
-
-/* References Section Styling */
-.references {
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(100, 60, 148, 0.2);
-    position: relative;
-}
-
-.references button {
-    background: #643c94;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-.references button:hover {
-    background-color: #52307a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-#reference-content {
-    margin-top: 20px;
-    padding: 25px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
-    border: 1px solid rgba(100, 60, 148, 0.1);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-#reference-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-#reference-content ul li {
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
-    padding-left: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-#reference-content ul li::before {
-    display: none;
-}
-
-#reference-content ul li em {
-    color: #643c94;
-}
-
-@media (max-width: 768px) {
-    .about-section {
-        padding: 100px 0 150px;
-    }
-
-    .about-intro h1 {
-        font-size: 2rem;
-    }
-
-    .about-intro p {
-        font-size: 1rem;
-    }
-
-    .about-container {
-        margin-top: -200px;
-    }
-
-    .about-box {
-        width: 100%;
-        max-width: 400px;
-    }
-    
-    .gamification-science {
-        margin: 60px auto;
-        padding: 30px 25px;
-    }
-
-    .gamification-science h2 {
-        font-size: 2rem;
-        margin-bottom: 25px;
-    }
-
-    .gamification-science h3 {
-        font-size: 1.5rem;
-        margin: 30px 0 20px;
-    }
-
-    .gamification-science p,
-    .gamification-science ul li {
-        font-size: 1rem;
-    }
-
-    .gamification-science ul {
-        margin: 20px 0 30px;
-    }
-
-    .gamification-science ul li {
-        margin-bottom: 20px;
-    }
-
-    .trainers-container {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .gamification-science {
-        margin: 40px auto;
-        padding: 20px;
-    }
-
-    .gamification-science h2 {
-        font-size: 1.75rem;
-    }
-
-    .gamification-science h3 {
-        font-size: 1.35rem;
-    }
-
-    #reference-content {
-        padding: 15px;
-    }
-}
-
-
-
-
-/* Fix for additional pages (about, blog-post, contact, learning-programme, team-building) */
-
-/* Force body to hide overflow */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
-
-/* Fix main content container */
-.main-content {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    overflow-x: hidden;
-    position: relative;
-    box-sizing: border-box;
-}
-
-/* Fix section containers */
-.about-section, 
-.blog-post-container,
-.contact-section,
-.learning-hero,
-.teambuilding-hero {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-    left: 0;
-}
-
-/* Fix clip-path which might be causing overflow */
-.about-section,
-.contact-section,
-.learning-hero,
-.teambuilding-hero {
-    -webkit-clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-    clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
-}
-
-/* Fix intro containers */
-.about-intro,
-.blog-post-header,
-.contact-intro,
-.learning-intro {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
-    position: relative;
-    z-index: 2;
-    box-sizing: border-box;
-}
-
-/* Fix content containers */
-.about-container,
-.blog-post-content,
-.contact-container,
-.learning-details,
-.learning-image-container {
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 2;
-}
-
-/* Make sure header and footer are contained */
-.main-header, .site-footer {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-/* Fix geometric shapes positioning */
-.geometric-circle, 
-.geometric-circle-2, 
-.geometric-circle-3, 
-.geometric-circle-4, 
-.geometric-circle-5, 
-.geometric-circle-6,
-.geometric-cube,
-.geometric-cube-2 {
-    position: absolute;
-    z-index: 1;
-}
-
-/* Add media query to handle horizontal overflow on small screens */
-@media (max-width: 768px) {
-    * {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .about-container,
-    .blog-post-container,
-    .contact-container,
-    .learning-details {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    
-    img, svg, video {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    input, textarea, select, button {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-}
+            width: 100%;
+            max-width: 100%;
+            padding-top: 100px;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+            box-sizing: border-box;
+            color: #643c94;
+        }
+        
+        /* Hero Section */
+        .about-section {
+            width: 100%;
+            max-width: 100%;
+            background-color: #643c94;
+            clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+            -webkit-clip-path: polygon(0 0, 0 85%, 100% 95%, 100% 0);
+            padding: 120px 0 200px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .about-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-intro p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        /* Content Container */
+        .about-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px;
+            margin: -30px auto 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+        
+        .section-title {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #643c94;
+            font-size: 2.2rem;
+        }
+        
+        /* Team Cards */
+        .about-box {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 4px solid #f3eb2e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .about-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 25px;
+            border: 3px solid #643c94;
+        }
+        
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #643c94;
+        }
+        
+        .about-box h3 {
+            font-size: 1.2rem;
+            color: #4a90e2;
+            margin-bottom: 8px;
+        }
+        
+        .role {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .one-liner {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #643c94;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .linkedin-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        .linkedin-link:hover {
+            opacity: 0.8;
+        }
+        
+        /* Partnering Trainers Section */
+        .partnering-trainers {
+            margin-top: 80px;
+            width: 100%;
+            margin-bottom: 80px;
+        }
+        
+        .trainers-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
+        /* Gamification Science Section */
+        .gamification-science {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            line-height: 1.8;
+            background-color: rgba(100, 60, 148, 0.08);
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(100, 60, 148, 0.15);
+            border: 3px solid #643c94;
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science h2 {
+            font-size: 2.5rem;
+            color: #643c94;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            text-align: left;
+            padding-bottom: 15px;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science h3 {
+            font-size: 1.8rem;
+            color: #643c94;
+            margin: 40px 0 25px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 25px;
+            text-align: left;
+            line-height: 1.8;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science ul {
+            text-align: left;
+            margin: 30px 0 40px;
+            padding-left: 25px;
+            list-style-type: none;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science ul li {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 25px;
+            color: #444;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: #643c94;
+            border-radius: 50%;
+        }
+        
+        .gamification-science ul li strong {
+            color: #643c94;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science a {
+            color: #643c94;
+            text-decoration: none;
+            border-bottom: 2px solid #f3eb2e;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            padding-bottom: 2px;
+            word-wrap: break-word;
+        }
+        
+        .gamification-science a:hover {
+            background-color: rgba(243, 235, 46, 0.15);
+            border-color: #643c94;
+            padding: 0 3px;
+        }
+        
+        /* References Section */
+        .references {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(100, 60, 148, 0.2);
+            position: relative;
+        }
+        
+        .references button {
+            background: #643c94;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .references button:hover {
+            background-color: #52307a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        #reference-content {
+            margin-top: 20px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            border: 1px solid rgba(100, 60, 148, 0.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            word-wrap: break-word;
+        }
+        
+        #reference-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            word-wrap: break-word;
+        }
+        
+        #reference-content ul li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            padding-left: 0;
+            word-wrap: break-word;
+        }
+        
+        #reference-content ul li::before {
+            display: none;
+        }
+        
+        #reference-content ul li em {
+            color: #643c94;
+        }
+        
+        /* Geometric shape styles - kept simple as they're positioned absolutely */
+        .geometric-circle, 
+        .geometric-circle-2, 
+        .geometric-circle-3, 
+        .geometric-circle-4, 
+        .geometric-circle-5, 
+        .geometric-circle-6,
+        .geometric-cube,
+        .geometric-cube-2 {
+            position: absolute;
+            z-index: 1;
+        }
+        
+        /* Responsive Styles */
+        @media (min-width: 1200px) {
+            .trainers-container {
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+            
+            .trainers-container .about-box {
+                flex: 0 0 auto;
+                width: calc((100% - 80px) / 3);
+            }
+        }
+        
+        @media (max-width: 1199px) and (min-width: 769px) {
+            .trainers-container {
+                justify-content: center;
+            }
+            
+            .trainers-container .about-box:nth-child(3) {
+                margin-top: 40px;
+            }
+            
+            .trainers-container {
+                max-width: 840px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .about-section {
+                padding: 100px 0 150px;
+            }
+            
+            .about-intro h1 {
+                font-size: 2rem;
+            }
+            
+            .about-intro p {
+                font-size: 1rem;
+            }
+            
+            .about-container {
+                margin-top: -200px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .about-box {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .gamification-science {
+                margin: 60px auto;
+                padding: 30px 25px;
+            }
+            
+            .gamification-science h2 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+            
+            .gamification-science h3 {
+                font-size: 1.5rem;
+                margin: 30px 0 20px;
+            }
+            
+            .gamification-science p,
+            .gamification-science ul li {
+                font-size: 1rem;
+            }
+            
+            .gamification-science ul {
+                margin: 20px 0 30px;
+            }
+            
+            .gamification-science ul li {
+                margin-bottom: 20px;
+            }
+            
+            .trainers-container {
+                justify-content: center;
+            }
+            
+            img, svg, video {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            input, textarea, select, button {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gamification-science {
+                margin: 40px auto;
+                padding: 20px;
+            }
+            
+            .gamification-science h2 {
+                font-size: 1.75rem;
+            }
+            
+            .gamification-science h3 {
+                font-size: 1.35rem;
+            }
+            
+            #reference-content {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header class="main-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img src="/images/nav_logo.png" alt="TeamBuild Co. Logo" class="nav-logo">
-            </a>
-            <button class="menu-toggle" aria-label="Mobile Menu">
-                <span class="hamburger"></span>
-            </button>
-            <nav>
-                <ul>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/gallery">Gallery</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <%- include('partials/header') %>
 
     <div class="main-content">
         <!-- About Intro Section -->
         <section class="about-section">
+            <!-- Geometric shapes for visual enhancement -->
             <div class="geometric-circle"></div>
-<div class="geometric-circle-2"></div>
-<div class="geometric-circle-3"></div>
-    <div class="geometric-circle-4"></div>
-    <div class="geometric-circle-5"></div>
-<div class="geometric-circle-6"></div>
-<div class="geometric-cube"></div>
-<div class="geometric-cube-2"></div>
+            <div class="geometric-circle-2"></div>
+            <div class="geometric-circle-3"></div>
+            <div class="geometric-circle-4"></div>
+            <div class="geometric-circle-5"></div>
+            <div class="geometric-circle-6"></div>
+            <div class="geometric-cube"></div>
+            <div class="geometric-cube-2"></div>
+            
             <div class="about-intro">
                 <h1>About Us</h1>
-                <p>At Experience Enablers, our passion is to help individuals discover life-changing insights through shared experiences that empower growth, connection, and transformation in every aspect of their lives.
-                </p>
+                <p>At Experience Enablers, our passion is to help individuals discover life-changing insights through shared experiences that empower growth, connection, and transformation in every aspect of their lives.</p>
             </div>
         </section>
 
         <!-- Team Section -->
         <div class="about-container">
             <!-- Co-founders Section -->
-            <h5 class="section-title">The team that is passionate in buildling Leaders of Tomorrow</h5>
+            <h5 class="section-title">The team that is passionate in building Leaders of Tomorrow</h5>
             
             <!-- Jason Fung Card -->
             <div class="about-box">
@@ -688,34 +599,13 @@ html, body {
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="/images/nav_logo.png" alt="TeamBuild Co. Logo" class="brand-logo">
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/experience-enablers" target="_blank" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/experienceenablers/" target="_blank" class="social-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                &copy; <script>document.write(new Date().getFullYear());</script> Experience Enablers. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Section -->
+    <%- include('partials/footer') %>
 
-    <!-- Mobile Menu Script -->
+    <!-- Javascript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle functionality
             const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('.main-header nav ul');
             
@@ -741,7 +631,7 @@ html, body {
             });
         });
 
-        // Function to toggle references
+        // Function to toggle references visibility
         function toggleReferences() {
             var content = document.getElementById("reference-content");
             if (content.style.display === "none") {
