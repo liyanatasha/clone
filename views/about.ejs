@@ -26,7 +26,6 @@
     <style>
         /* Global Styles and Fixes */
         html, body {
-            overflow-x: hidden;
             width: 100%;
             position: relative;
         }
@@ -189,177 +188,6 @@
             flex-wrap: wrap;
         }
         
-        /* Gamification Science Section */
-        .gamification-science {
-            max-width: 800px;
-            margin: 80px auto;
-            padding: 40px;
-            line-height: 1.8;
-            background-color: rgba(100, 60, 148, 0.08);
-            border-radius: 15px;
-            box-shadow: 0 6px 18px rgba(100, 60, 148, 0.15);
-            border: 3px solid #643c94;
-            position: relative;
-            box-sizing: border-box;
-            overflow: hidden;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science h2 {
-            font-size: 2.5rem;
-            color: #643c94;
-            margin-bottom: 30px;
-            line-height: 1.3;
-            text-align: left;
-            padding-bottom: 15px;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science h3 {
-            font-size: 1.8rem;
-            color: #643c94;
-            margin: 40px 0 25px;
-            text-align: left;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science p {
-            font-size: 1.1rem;
-            color: #444;
-            margin-bottom: 25px;
-            text-align: left;
-            line-height: 1.8;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science ul {
-            text-align: left;
-            margin: 30px 0 40px;
-            padding-left: 25px;
-            list-style-type: none;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science ul li {
-            margin-bottom: 25px;
-            position: relative;
-            padding-left: 25px;
-            color: #444;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science ul li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 10px;
-            width: 8px;
-            height: 8px;
-            background-color: #643c94;
-            border-radius: 50%;
-        }
-        
-        .gamification-science ul li strong {
-            color: #643c94;
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1.15rem;
-            line-height: 1.4;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science a {
-            color: #643c94;
-            text-decoration: none;
-            border-bottom: 2px solid #f3eb2e;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            padding-bottom: 2px;
-            word-wrap: break-word;
-        }
-        
-        .gamification-science a:hover {
-            background-color: rgba(243, 235, 46, 0.15);
-            border-color: #643c94;
-            padding: 0 3px;
-        }
-        
-        /* References Section */
-        .references {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(100, 60, 148, 0.2);
-            position: relative;
-        }
-        
-        .references button {
-            background: #643c94;
-            border: none;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .references button:hover {
-            background-color: #52307a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-        }
-        
-        #reference-content {
-            margin-top: 20px;
-            padding: 25px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            border: 1px solid rgba(100, 60, 148, 0.1);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-            word-wrap: break-word;
-        }
-        
-        #reference-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            word-wrap: break-word;
-        }
-        
-        #reference-content ul li {
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.6;
-            padding-left: 0;
-            word-wrap: break-word;
-        }
-        
-        #reference-content ul li::before {
-            display: none;
-        }
-        
-        #reference-content ul li em {
-            color: #643c94;
-        }
-        
-        /* Geometric shape styles - kept simple as they're positioned absolutely */
-        .geometric-circle, 
-        .geometric-circle-2, 
-        .geometric-circle-3, 
-        .geometric-circle-4, 
-        .geometric-circle-5, 
-        .geometric-circle-6,
-        .geometric-cube,
-        .geometric-cube-2 {
-            position: absolute;
-            z-index: 1;
-        }
-        
         /* Responsive Styles */
         @media (min-width: 1200px) {
             .trainers-container {
@@ -417,34 +245,6 @@
                 max-width: 400px;
             }
             
-            .gamification-science {
-                margin: 60px auto;
-                padding: 30px 25px;
-            }
-            
-            .gamification-science h2 {
-                font-size: 2rem;
-                margin-bottom: 25px;
-            }
-            
-            .gamification-science h3 {
-                font-size: 1.5rem;
-                margin: 30px 0 20px;
-            }
-            
-            .gamification-science p,
-            .gamification-science ul li {
-                font-size: 1rem;
-            }
-            
-            .gamification-science ul {
-                margin: 20px 0 30px;
-            }
-            
-            .gamification-science ul li {
-                margin-bottom: 20px;
-            }
-            
             .trainers-container {
                 justify-content: center;
             }
@@ -457,25 +257,6 @@
             input, textarea, select, button {
                 max-width: 100%;
                 box-sizing: border-box;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .gamification-science {
-                margin: 40px auto;
-                padding: 20px;
-            }
-            
-            .gamification-science h2 {
-                font-size: 1.75rem;
-            }
-            
-            .gamification-science h3 {
-                font-size: 1.35rem;
-            }
-            
-            #reference-content {
-                padding: 15px;
             }
         }
     </style>

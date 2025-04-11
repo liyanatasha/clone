@@ -26,7 +26,6 @@
     <style>
         /* Global Fixes */
         html, body {
-            overflow-x: hidden;
             width: 100%;
             position: relative;
         }
@@ -84,6 +83,8 @@
             z-index: 2;
             width: 100%;
             box-sizing: border-box;
+            flex: 1;
+            overflow: hidden;
         }
         
         .gallery-entry {
@@ -136,19 +137,6 @@
             color: #888;
             font-size: 0.9rem;
             margin-top: 15px;
-        }
-        
-        /* Geometric Shapes Styling */
-        .geometric-circle, 
-        .geometric-circle-2, 
-        .geometric-circle-3, 
-        .geometric-circle-4, 
-        .geometric-circle-5, 
-        .geometric-circle-6,
-        .geometric-cube,
-        .geometric-cube-2 {
-            position: absolute;
-            z-index: 1;
         }
         
         /* Header and Footer Styling */

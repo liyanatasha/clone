@@ -26,7 +26,6 @@
     <style>
         /* General Layout Styles */
         html, body {
-            overflow-x: hidden;
             width: 100%;
             position: relative;
         }
@@ -294,19 +293,6 @@
             z-index: 999;
         }
 
-        /* Geometric Shapes Positioning */
-        .geometric-circle, 
-        .geometric-circle-2, 
-        .geometric-circle-3, 
-        .geometric-circle-4, 
-        .geometric-circle-5, 
-        .geometric-circle-6,
-        .geometric-cube,
-        .geometric-cube-2 {
-            position: absolute;
-            z-index: 1;
-        }
-
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             * {
@@ -415,7 +401,7 @@
             </div>
 
             <!-- Right Side: Contact Form -->
-            <form class="contact-form" action="https://formspree.io/f/mblgopqe" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/xzzeyogp" method="POST">
                 <div class="form-row">
                     <div class="input-group">
                         <label for="name">Name (required)</label>
@@ -516,7 +502,7 @@
                     submitButton.disabled = true;
                     
                     // Submit form via AJAX
-                    fetch('https://formspree.io/f/mblgopqe', {
+                    fetch('https://formspree.io/f/xzzeyogpe', {
                         method: 'POST',
                         body: formData,
                         headers: {
